@@ -1,10 +1,13 @@
 package it.uniroma3.siw.silphspa.model;
 
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 
@@ -17,15 +20,15 @@ public class Fotografo {
 	private String cognome;
 	private Long matricola;
 	
+	@OneToMany (mappedBy = "fotografo")
+	private List<Foto> foto;
+	
+	@OneToMany (mappedBy = "fotografo")
+	private List<Album> album;
 	
 	
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+	//GETTER E SETTER
 	public String getNome() {
 		return nome;
 	}
@@ -43,5 +46,11 @@ public class Fotografo {
 	}
 	public void setMatricola(Long matricola) {
 		this.matricola = matricola;
+	}
+	public List<Album> getAlbum() {
+		return album;
+	}
+	public void setAlbum(List<Album> album) {
+		this.album = album;
 	}
 }
