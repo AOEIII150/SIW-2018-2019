@@ -5,14 +5,14 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import it.uniroma3.siw.silphspa.model.Studente;
+import it.uniroma3.siw.silphspa.model.Fotografo;
 
 @Component
 public class StudenteValidator implements Validator{
 
 	@Override
 	public boolean supports(Class<?> aClazz) {
-		return Studente.class.equals(aClazz);
+		return Fotografo.class.equals(aClazz);
 	}
 
 	@Override
