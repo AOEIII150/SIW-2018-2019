@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.uniroma3.siw.silphspa.model.Studente;
+import it.uniroma3.siw.silphspa.model.Fotografo;
 import it.uniroma3.siw.silphspa.repository.StudenteRepository;
 
 @Service
@@ -16,14 +16,14 @@ public class StudenteService {
 	private StudenteRepository studenteRepository;
 	
 	@Transactional
-	public Studente inserisciStudente(Studente studente) {
+	public Fotografo inserisciStudente(Fotografo studente) {
 			return studenteRepository.save(studente);
 		
 	}
 	
 	@Transactional
-	public List<Studente> MostraTutti(){
-		    return (List<Studente>)studenteRepository.findAll();
+	public List<Fotografo> MostraTutti(){
+		    return (List<Fotografo>)studenteRepository.findAll();
 	}
 
 	public Object studentePerId(Long id) {
