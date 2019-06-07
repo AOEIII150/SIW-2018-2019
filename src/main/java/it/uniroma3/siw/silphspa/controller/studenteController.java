@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import it.uniroma3.siw.silphspa.model.Studente;
+import it.uniroma3.siw.silphspa.model.Fotografo;
 import it.uniroma3.siw.silphspa.services.StudenteService;
 import it.uniroma3.siw.silphspa.services.StudenteValidator;
 
@@ -26,7 +26,7 @@ public class studenteController {
 	private StudenteValidator studenteValidator;
 
 	@RequestMapping(value = "/studente",method=RequestMethod.POST)
-	public String newStudente(@Valid @ModelAttribute("studente") Studente studente, Model model, BindingResult bindingResult) {
+	public String newStudente(@Valid @ModelAttribute("studente") Fotografo studente, Model model, BindingResult bindingResult) {
 
 		this.studenteValidator.validate(studente,bindingResult);
 		if(!bindingResult.hasErrors()) {
@@ -51,7 +51,7 @@ public class studenteController {
 	
 	@RequestMapping(value ="/addStudente")
 	public String addStudente(Model model) {
-		model.addAttribute("studente",new Studente());
+		model.addAttribute("studente",new Fotografo());
 		return "studenteForm.html";
 	}
 }
