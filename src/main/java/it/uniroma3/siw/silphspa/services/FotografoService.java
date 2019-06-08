@@ -13,21 +13,21 @@ import it.uniroma3.siw.silphspa.repository.FotografoRepository;
 @Service
 public class FotografoService {
 	@Autowired
-	private FotografoRepository studenteRepository;
+	private FotografoRepository fotografoRepository;
 	
 	@Transactional
-	public Fotografo inserisciStudente(Fotografo studente) {
-			return studenteRepository.save(studente);
+	public Fotografo inserisciFotografo(Fotografo fotografo) {
+			return fotografoRepository.save(fotografo);
 		
 	}
 	
 	@Transactional
 	public List<Fotografo> MostraTutti(){
-		    return (List<Fotografo>)studenteRepository.findAll();
+		    return (List<Fotografo>)fotografoRepository.findAll();
 	}
 
-	public Object studentePerId(Long id) {
-		return studenteRepository.findById(id).get();
+	public Object fotografoPerId(Long id) {
+		return fotografoRepository.findById(id).get();
 	}
 	
 }

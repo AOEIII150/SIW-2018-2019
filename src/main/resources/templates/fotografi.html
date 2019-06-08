@@ -4,10 +4,10 @@
 </head>
 <body>
 	<div>
-		<h4> Studenti</h4>
+		<h4> Fotografi </h4>
 		<ul>
-		<li th:each="studente : ${studenti}">
-			<a th:href="@{'/studente' + '/' + ${studente.id}}" th:text="${studente.cognome}"> Pluto </a>
+		<li th:each="fotografo : ${fotografi}">
+			<a th:href="@{'/fotografo' + '/' + ${fotografo.id}}" th:text="${fotografo.cognome}"> Pluto </a>
 		</li>
 		</ul>
 	</div>

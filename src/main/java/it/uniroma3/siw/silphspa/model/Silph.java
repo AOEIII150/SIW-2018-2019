@@ -1,5 +1,6 @@
 package it.uniroma3.siw.silphspa.model;
 
+
 public class Silph {
 	
 	//Dati di login per lo staff SILPH

@@ -20,38 +20,38 @@ public class FotografoController {
 
 
 	@Autowired
-	private FotografoService studenteService;
+	private FotografoService fotografoService;
 
 	@Autowired
-	private FotografoValidator studenteValidator;
+	private FotografoValidator fotografoValidator;
 
-	@RequestMapping(value = "/studente",method=RequestMethod.POST)
-	public String newStudente(@Valid @ModelAttribute("studente") Fotografo studente, Model model, BindingResult bindingResult) {
+	@RequestMapping(value = "/fotografo",method=RequestMethod.POST)
+	public String newFotografo(@Valid @ModelAttribute("fotografo") Fotografo fotografo, Model model, BindingResult bindingResult) {
 
-		this.studenteValidator.validate(studente,bindingResult);
+		this.fotografoValidator.validate(fotografo,bindingResult);
 		if(!bindingResult.hasErrors()) {
-			this.studenteService.inserisciStudente(studente);
-			model.addAttribute("studenti",this.studenteService.MostraTutti());
-			return "studenti.html";
+			this.fotografoService.inserisciFotografo(fotografo);
+			model.addAttribute("fotografi",this.fotografoService.MostraTutti());
+			return "fotografi.html";
 		}
 		else {
-			return "studenteForm.html";
+			return "fotografoForm.html";
 		}
 	}
 
-	@RequestMapping(value = "/studente/{id}", method=RequestMethod.GET)
-	public String getStudente(@PathVariable("id") Long id, Model model) {
+	@RequestMapping(value = "/fotografo/{id}", method=RequestMethod.GET)
+	public String getFotografo(@PathVariable("id") Long id, Model model) {
 		if(id!=null) {
-			model.addAttribute("studente",studenteService.studentePerId(id));
-			return "studente.html";
+			model.addAttribute("fotografo",fotografoService.fotografoPerId(id));
+			return "fotografo.html";
 		}else {
-			return "studenti.html";
+			return "fotografi.html";
 		}
 	}
 	
-	@RequestMapping(value ="/addStudente")
-	public String addStudente(Model model) {
-		model.addAttribute("studente",new Fotografo());
-		return "studenteForm.html";
+	@RequestMapping(value ="/addFotografo")
+	public String addFotografo(Model model) {
+		model.addAttribute("fotografo",new Fotografo());
+		return "fotografoForm.html";
 	}
 }
