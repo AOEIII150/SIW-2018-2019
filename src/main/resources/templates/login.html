@@ -108,15 +108,17 @@
 
 						</div>
 
-						<form name="cForm" id="cForm" method="post" action="pannelloDiControllo.html">
+						<form name="cForm" id="cForm" th:action="@{/login}" method="post" th:object="${Silph}">
 	  					   <fieldset>
 
 	                     <div class="form-field">
-	  						      <input name="username" type="text" id="cUsername" class="full-width" placeholder="Username" value="">
+	  						      <input th:field="*{username}" type="text" id="cUsername" class="full-width" placeholder="Username" value="">
+	  						      <p class="errors" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
 	                     </div>
 
 	                     <div class="form-field">
-	  						      <input name="password" type="password" id="cPassword" class="full-width" placeholder="Password" value="">
+	  						      <input th:field="*{password}" type="password" id="cPassword" class="full-width" placeholder="Password" value="">
+	  						      <p class="errors" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
 	                     </div>
 
 	                     <button type="submit" class="submit button-primary full-width-on-mobile">LOGIN</button>

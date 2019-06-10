@@ -22,7 +22,7 @@ package it.uniroma3.siw.silphspa.controller;
 		@RequestMapping(value = "/login",method=RequestMethod.POST)
 		public String newStudente(@Valid @ModelAttribute("login") Silph login, Model model, BindingResult bindingResult) {
 
-			this.loginValidator.validate(login,bindingResult);
+			this.loginValidator.validate(login, bindingResult);
 			if(!bindingResult.hasErrors()) {
 				return "pannelloDiControllo.html";
 			}
@@ -30,4 +30,14 @@ package it.uniroma3.siw.silphspa.controller;
 				return "login.html";
 			}
 		}
+		
+		
+		
+		@RequestMapping(value = "/loginForm")
+		public String loginForm(Model model) {
+			model.addAttribute("silph" , new Silph());
+			return "login.html";
+		}
 }
+	
+	
