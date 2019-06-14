@@ -11,8 +11,9 @@ public class Silph {
 	@Id
 	@GeneratedValue( strategy = GenerationType.AUTO)
 	//Dati di login per lo staff SILPH
-	private String username;
 	private String password;
+	private String username;
+	
 	
 	
 	//GETTER E SETTER
