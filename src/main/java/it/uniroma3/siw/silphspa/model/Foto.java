@@ -1,12 +1,9 @@
 package it.uniroma3.siw.silphspa.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -19,8 +16,8 @@ public class Foto {
 	private String indirizzo;
 	private String tag;
 	
-	@ManyToMany (mappedBy = "foto")
-	private List<Album> album;
+	@ManyToOne
+	private Album album;
 	
 	@ManyToOne
 	private Fotografo fotografo;

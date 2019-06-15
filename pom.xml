@@ -66,10 +66,6 @@
 			<artifactId>spring-boot-starter-websocket</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-rest-hal-browser</artifactId>
 		</dependency>
@@ -111,13 +107,6 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.vaadin</groupId>
-				<artifactId>vaadin-bom</artifactId>
-				<version>${vaadin.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
