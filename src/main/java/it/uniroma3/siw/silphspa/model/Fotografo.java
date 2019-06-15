@@ -53,4 +53,16 @@ public class Fotografo {
 	public void setAlbum(List<Album> album) {
 		this.album = album;
 	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public List<Foto> getFoto() {
+		return foto;
+	}
+	public void setFoto(List<Foto> foto) {
+		this.foto = foto;
+	}
 }

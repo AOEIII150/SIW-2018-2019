@@ -14,7 +14,6 @@ public class Foto {
 	private Long id;
 	private String titolo;
 	private String indirizzo;
-	private String tag;
 	
 	@ManyToOne
 	private Album album;
@@ -26,6 +25,18 @@ public class Foto {
 	public String getTitolo() {
 		return titolo;
 	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Fotografo getFotografo() {
+		return fotografo;
+	}
+	public void setFotografo(Fotografo fotografo) {
+		this.fotografo = fotografo;
+	}
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
 	}
@@ -35,11 +46,12 @@ public class Foto {
 	public void setIndirizzo(String indirizzo) {
 		this.indirizzo = indirizzo;
 	}
-	public String getTag() {
-		return tag;
+	
+	public Album getAlbum() {
+		return album;
 	}
-	public void setTag(String tag) {
-		this.tag = tag;
+	public void setAlbum(Album album) {
+		this.album = album;
 	}
 
 }

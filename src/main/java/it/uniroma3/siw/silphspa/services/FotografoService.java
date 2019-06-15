@@ -1,6 +1,7 @@
 package it.uniroma3.siw.silphspa.services;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import javax.transaction.Transactional;
 
@@ -26,8 +27,10 @@ public class FotografoService {
 		    return (List<Fotografo>)fotografoRepository.findAll();
 	}
 
-	public Object fotografoPerId(Long id) {
-		return fotografoRepository.findById(id).get();
+	public Fotografo fotografoPerId(Long id) {
+		try {return fotografoRepository.findById(id).get();}
+		catch(NoSuchElementException e) {return null;}
+		
 	}
 	
 }

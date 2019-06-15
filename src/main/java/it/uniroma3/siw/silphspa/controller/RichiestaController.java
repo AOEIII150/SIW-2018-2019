@@ -1,3 +1,5 @@
+
+/*
 package it.uniroma3.siw.silphspa.controller;
 
 	
@@ -11,17 +13,18 @@ package it.uniroma3.siw.silphspa.controller;
 	import org.springframework.web.bind.annotation.RequestMethod;
 	import it.uniroma3.siw.silphspa.model.Silph;
 	import it.uniroma3.siw.silphspa.services.LoginValidator;
+import it.uniroma3.siw.silphspa.services.RichiestaValidator;
 
 	@Controller
-	public class richiestaForm {
+	public class RichiestaController {
 
 		@Autowired
-		private LoginValidator loginValidator;
+		private RichiestaValidator richiestaValidator;
 
-		@RequestMapping(value = "/login",method=RequestMethod.POST)
-		public String newSilph(@Valid @ModelAttribute("silph") Silph login, Model model, BindingResult bindingResult) {
+		@RequestMapping(value = "/richiesta",method=RequestMethod.POST)
+		public String newSilph(@Valid @ModelAttribute("richiesta") Silph login, Model model, BindingResult bindingResult) {
 
-			this.loginValidator.validate(login, bindingResult);
+			this.richiestaValidator.validate(richiesta, bindingResult);
 			if(!bindingResult.hasErrors()) {
 				return "pannelloDiControllo.html";
 			}
@@ -38,3 +41,5 @@ package it.uniroma3.siw.silphspa.controller;
 			return "login.html";
 		}
 }
+
+*/

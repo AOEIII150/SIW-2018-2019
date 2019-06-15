@@ -124,7 +124,7 @@
 
 							<div class="form-field">
 								<input th:field="*{password}" type="password" id="cPassword"
-									class="half-width" placeholder="Password" value="">
+									class="half-width" placeholder="Password" value = "" >
 								<p class="errors" th:if="${#fields.hasErrors('password')}"
 									th:errors="*{password}"></p>
 							</div>

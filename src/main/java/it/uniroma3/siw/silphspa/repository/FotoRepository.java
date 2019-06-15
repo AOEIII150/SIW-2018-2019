@@ -8,6 +8,6 @@ import it.uniroma3.siw.silphspa.model.Foto;
 public interface FotoRepository extends CrudRepository <Foto , Long> {
 	
 	//finfBy Tag associata alla foto
-	public List<Foto> findByTag(String tag);
+	public List<Foto> findByTitolo(String titolo);
 
 }
