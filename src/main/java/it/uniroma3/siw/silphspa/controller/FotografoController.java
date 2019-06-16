@@ -31,15 +31,15 @@ public class FotografoController {
 		this.fotografoValidator.validate(fotografo,bindingResult);
 		if(!bindingResult.hasErrors()) {
 			this.fotografoService.inserisciFotografo(fotografo);
-			model.addAttribute("fotografi",this.fotografoService.MostraTutti());
-			return "fotografi.html";
+			/*model.addAttribute("fotografi",this.fotografoService.MostraTutti());*/
+			return "pannelloDiControllo.html";
 		}
 		else {
 			return "fotografoForm.html";
 		}
 	}
 
-	@RequestMapping(value = "/fotografo/{id}", method=RequestMethod.GET)
+	/*@RequestMapping(value = "/fotografo/{id}", method=RequestMethod.GET)
 	public String getFotografo(@PathVariable("id") Long id, Model model) {
 		if(id!=null) {
 			model.addAttribute("fotografo",fotografoService.fotografoPerId(id));
@@ -47,7 +47,7 @@ public class FotografoController {
 		}else {
 			return "fotografi.html";
 		}
-	}
+	}*/
 	
 	@RequestMapping(value ="/addFotografo")
 	public String addFotografo(Model model) {

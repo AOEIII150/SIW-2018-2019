@@ -9,10 +9,21 @@ public class SystemController {
 	
 	
 	//HOME
-	@RequestMapping(value = "/home")
+	@RequestMapping(value = "/")
 	public String home(Model model) {
-		model.addAttribute("home");
 		return "index.html";
+	}
+	
+	//LOGIN
+	@RequestMapping(value="/login")
+	public String login() {
+		return "login.html";
+	}
+	
+	//PannelloDiControllo
+	@RequestMapping(value="/pannelloDiControllo")
+	public String pannelloDiControllo() {
+		return "pannelloDiControllo.html";
 	}
 	
 	//CATEGORIE
@@ -38,8 +49,7 @@ public class SystemController {
 	
 	//FOTOGRAFI
 	@RequestMapping(value = "/fotografi")
-	public String fotografi(Model model) {
-		model.addAttribute("fotografi");
+	public String fotografi() {
 		return "fotografi.html";		
 	}
 	

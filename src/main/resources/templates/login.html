@@ -49,7 +49,7 @@
 
 			<nav id="main-nav-wrap">
 				<ul class="main-navigation sf-menu">
-					<li><a href="/home" title="">Home</a></li>
+					<li><a href="/" title="">Home</a></li>
 					<li class="has-children"><a href="/categorie" title="">Categorie</a>
 						<ul class="sub-menu">
 							<li><a href="/fotos">Foto</a></li>
@@ -59,7 +59,7 @@
 					<li class="has-children"><a href="/carrello"
 						title="">Carrello</a></li>
 					<li><a href="/about" title="">About</a></li>
-					<li class="current"><a href="/login" title="">SILPH</a></li>
+					<li class="current"><a href="/pannelloDiControllo" title="">Staff</a></li>
 				</ul>
 			</nav>
 			<!-- end main-nav-wrap -->
@@ -101,8 +101,7 @@
 
 					<div class="primary-content"></div>
 
-					<h1 class="entry-title add-bottom">SILPH staff accesso
-						riservato</h1>
+					<h1 class="entry-title add-bottom">SILPH staff accesso riservato</h1>
 
 					<div class="row">
 						<div class="col-six tab-full"></div>
@@ -111,23 +110,19 @@
 
 					</div>
 
-					<form name="cForm" id="cForm" th:action="@{/login}" method="post"
-						th:object="${silph}">
+					<form name="f" th:action="@{/login}" method="post">
 						<fieldset>
-
-							<div class="form-field">
-								<input th:field="*{username}" type="text" id="cUsername"
-									class="half-width" placeholder="Username" value="">
-								<p class="errors" th:if="${#fields.hasErrors('username')}"
-									th:errors="*{username}"></p>
-							</div>
-
-							<div class="form-field">
-								<input th:field="*{password}" type="password" id="cPassword"
-									class="half-width" placeholder="Password" value = "" >
-								<p class="errors" th:if="${#fields.hasErrors('password')}"
-									th:errors="*{password}"></p>
-							</div>
+							<div th:if="${param.error}" class="alert alert-error">    
+                   				 Invalid username and password.
+               				</div>
+                			<div th:if="${param.logout}" class="alert alert-success"> 
+                    			You have been logged out.
+                			</div>
+                			<label for="username">Username</label>
+			                <input type="text" id="username" name="username" class="half-width"/>        
+			                <label for="password">Password</label>
+			                <input type="password" id="password" name="password" class="half-width"/>
+							
 
 							<button type="submit"
 								class="submit button-primary full-width-on-mobile">LOGIN</button>

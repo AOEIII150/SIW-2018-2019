@@ -30,7 +30,6 @@ public class FotografoService {
 	public Fotografo fotografoPerId(Long id) {
 		try {return fotografoRepository.findById(id).get();}
 		catch(NoSuchElementException e) {return null;}
-		
 	}
 	
 }

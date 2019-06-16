@@ -18,15 +18,13 @@ public class Fotografo {
 	private Long id;
 	private String nome;
 	private String cognome;
-	private Long matricola;
 	
 	@OneToMany (mappedBy = "fotografo")
 	private List<Foto> foto;
 	
 	@OneToMany (mappedBy = "fotografo")
 	private List<Album> album;
-	
-	
+
 	
 	//GETTER E SETTER
 	public String getNome() {
@@ -40,12 +38,6 @@ public class Fotografo {
 	}
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
-	}
-	public Long getMatricola() {
-		return matricola;
-	}
-	public void setMatricola(Long matricola) {
-		this.matricola = matricola;
 	}
 	public List<Album> getAlbum() {
 		return album;

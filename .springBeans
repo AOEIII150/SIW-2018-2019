@@ -7,7 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>java:it.uniroma3.siw.silphspa.DemoSpringApplication</config>
+		<config>java:it.uniroma3.siw.silphspa.SilphSpaApplication</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

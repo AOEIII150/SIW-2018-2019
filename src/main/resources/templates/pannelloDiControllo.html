@@ -49,7 +49,7 @@
 
 			<nav id="main-nav-wrap">
 				<ul class="main-navigation sf-menu">
-					<li><a href="/home" title="">Home</a></li>
+					<li><a href="/" title="">Home</a></li>
 					<li class="has-children"><a href="/categorie" title="">Categorie</a>
 						<ul class="sub-menu">
 							<li><a href="/fotos">Foto</a></li>
@@ -59,7 +59,7 @@
 					<li class="has-children"><a href="/carrello"
 						title="">Carrello</a></li>
 					<li><a href="/about" title="">About</a></li>
-					<li class="current"><a href="/login" title="">SILPH</a></li>
+					<li class="current"><a href="/pannelloDiControllo" title="">Staff</a></li>
 				</ul>
 			</nav>
 			<!-- end main-nav-wrap -->
@@ -111,31 +111,27 @@
 
 					</div>
 
-					<form name="cForm" id="cForm" method="post" action="/fotoForm">
+					<form name="cForm" id="cForm" method="get" action="/fotoForm">
 						<button type="submit" class="half-width">Aggiungi foto</button>
 					</form>
 
-					<form name="cForm" id="cForm" method="post" action="/albumForm">
+					<form name="cForm" id="cForm" method="get" action="/albumForm">
 						<button type="submit" class="half-width">Aggiungi album</button>
 					</form>
 
-					<form name="cForm" id="cForm" method="post" action="/addFotografo">
-						<button type="submit" class="half-width">Aggiungi
-							fotografo</button>
+					<form name="cForm" id="cForm" method="get" action="/addFotografo">
+						<button type="submit" class="half-width">Aggiungi fotografo</button>
 					</form>
 
-					<form name="cForm" id="cForm" method="post"
-						action="/mostraFoto">
+					<form name="cForm" id="cForm" method="get" action="/mostraFoto">
 						<button type="submit" class="half-width">Mostra foto</button>
 					</form>
 
-					<form name="cForm" id="cForm" method="post"
-						action="/mostraAlbum">
+					<form name="cForm" id="cForm" method="get" action="/mostraAlbum">
 						<button type="submit" class="half-width">Mostra album</button>
 					</form>
 
-					<form name="cForm" id="cForm" method="post"
-						action="/mostraFotografi">
+					<form name="cForm" id="cForm" method="get" action="/mostrafotografi">
 						<button type="submit" class="half-width">Mostra fotografi</button>
 					</form>
 

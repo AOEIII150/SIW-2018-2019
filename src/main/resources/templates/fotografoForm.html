@@ -16,10 +16,7 @@
 				<td>Cognome:</td>
 				<td><input type="text" th:field="*{cognome}" /></td>	
 				<td th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></td>
-				
-				<td>Matricola:</td>
-				<td><input type="number" th:field="*{matricola}"/></td>
-				<td th:if="${#fields.hasErrors('matricola')}" th:errors="*{matricola}"></td>
+
 			</tr>
 
 		<tr>
