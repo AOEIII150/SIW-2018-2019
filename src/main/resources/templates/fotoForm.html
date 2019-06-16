@@ -121,7 +121,7 @@
 							<input type="number" th:field="*{idAlbum}" class="idAlbum"/>
 							<h4 th:if="${#fields.hasErrors('idAlbum')}" th:errors="*{idAlbum}" class="alert alert-error"></h4>
 							<div>URL:</div>
-							<input type="number" th:field="*{indirizzo}" class="half-width"/>
+							<input type="text" th:field="*{indirizzo}" class="half-width"/>
 							<h4 th:if="${#fields.hasErrors('indirizzo')}" th:errors="*{indirizzo}" class="alert alert-error"></h4>
 							
 							<button type="submit" class="submit button-primary full-width-on-mobile">INSERISCI</button>

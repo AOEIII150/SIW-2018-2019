@@ -44,7 +44,8 @@ public class FotoController {
 			Album album = this.albumService.AlbumPerId(fotoForm.getIdAlbum());
 			if(fotografo != null) {
 				Foto foto = new Foto();
-				foto.setTitolo(fotoForm.getNome());
+				String nome = fotoForm.getNome().substring(0, 1).toUpperCase() + fotoForm.getNome().substring(1).toLowerCase();		
+				foto.setTitolo(nome);
 				foto.setFotografo(fotografo);
 					if(album != null) {
 						foto.setIndirizzo(fotoForm.getIndirizzo());

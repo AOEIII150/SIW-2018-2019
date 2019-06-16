@@ -39,7 +39,8 @@ import it.uniroma3.siw.silphspa.services.FotografoService;
 				Fotografo fotografo = this.fotografoService.fotografoPerId(albumForm.getIdFotografo());
 				if(fotografo != null) {
 					Album album = new Album();
-					album.setTitolo(albumForm.getNome());
+					String nome = albumForm.getNome().substring(0, 1).toUpperCase() + albumForm.getNome().substring(1).toLowerCase();				
+					album.setTitolo(nome);
 					album.setFotografo(fotografo);
 					List<Album> albums = fotografo.getAlbum();
 					albums.add(album);

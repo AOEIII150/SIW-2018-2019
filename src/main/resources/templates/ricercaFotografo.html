@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th= "http://www.thymeleaf.org" xmlns="htttp://www.w3.org/1999/html">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<div>
+	<h4>Inserisci dati fotografo:</h4>
+	</div>
+	<form th:action="@{/cercaFotografo}" method="POST" th:object="${stringRicerca}">
+		<table>
+			<tr>
+				<td>Nome fotografo:</td>
+				<td><input type="text" th:field="*{s1}" /></td>
+				
+				<td>Cognome fotografo:</td>
+				<td><input type="text" th:field="*{s2}" /></td>
+				
+				<td>ID fotografo:</td>
+				<td><input type="text" th:field="*{s3}" /></td>
+				
+					
+				<td th:if="${#fields.hasErrors('s3')}" th:errors="*{s3}" class="alert alert-error"></td>
+				
+				
+			</tr>
+
+		<tr>
+			<td><button type="submit">INVIO</button></td>
+		</tr>
+		
+		</table>
+	</form>
+</html>
