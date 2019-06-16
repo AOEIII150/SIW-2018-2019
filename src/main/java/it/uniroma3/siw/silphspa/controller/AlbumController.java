@@ -45,7 +45,7 @@ import it.uniroma3.siw.silphspa.services.FotografoService;
 					albums.add(album);
 					fotografo.setAlbum(albums);
 					this.albumService.inserisciAlbum(album);
-					return "pannelloDiControllo.html";
+					return "confermaInserimentoAlbum.html";
 				}
 				else {
 					bindingResult.rejectValue("idFotografo", "wrong");

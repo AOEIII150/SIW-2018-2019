@@ -27,7 +27,7 @@ public class SystemController {
 	}
 	
 	
-	//PannelloDiControllo
+	//PANNELLO DI CONTROLLO
 	@RequestMapping(value="/pannelloDiControllo")
 	public String pannelloDiControllo() {
 		return "pannelloDiControllo.html";

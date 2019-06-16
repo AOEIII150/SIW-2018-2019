@@ -1,5 +1,3 @@
-/*
-
 package it.uniroma3.siw.silphspa.controller;
 
 
@@ -58,20 +56,15 @@ public class FotoController {
 			}
 			else {
 				bindingResult.rejectValue("idFotografo", "wrong");
-				return "fotoForm.html";
-
-				else {
-					bindingResult.rejectValue("idAlbum", "wrong");
+				bindingResult.rejectValue("idAlbum", "wrong");
 					return "fotoForm.html";
 				}
 			}
-
+		return "fotoForm.html";
 
 		}
-		else {
-			return "fotoForm.html";
-		}
-	}
+
+	
 
 
 
@@ -81,5 +74,3 @@ public class FotoController {
 		return "fotoForm.html";
 	}
 }
-
-*/
