@@ -1,6 +1,8 @@
 package it.uniroma3.siw.silphspa.services;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,11 @@ public class AlbumService {
 	@Transactional
 	public List<Album> MostraTutti(){
 		    return (List<Album>)albumRepository.findAll();
+	}
+	
+	public Album AlbumPerId(Long id) {
+		try {return albumRepository.findById(id).get();}
+		catch(NoSuchElementException e) {return null;}
 	}
 	
 }

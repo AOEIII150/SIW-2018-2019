@@ -11,16 +11,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import it.uniroma3.siw.silphspa.model.Album;
-import it.uniroma3.siw.silphspa.model.AlbumForm;
 import it.uniroma3.siw.silphspa.model.Foto;
 import it.uniroma3.siw.silphspa.model.FotoForm;
 import it.uniroma3.siw.silphspa.model.Fotografo;
 import it.uniroma3.siw.silphspa.services.AlbumService;
 import it.uniroma3.siw.silphspa.services.FotoFormValidator;
 import it.uniroma3.siw.silphspa.services.FotoService;
-import it.uniroma3.siw.silphspa.services.FotoValidator;
 import it.uniroma3.siw.silphspa.services.FotografoService;
 
 @Controller
@@ -44,28 +41,37 @@ public class FotoController {
 		this.fotoFormValidator.validate(fotoForm, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			Fotografo fotografo = this.fotografoService.fotografoPerId(fotoForm.getIdFotografo());
+			Album album = this.albumService.AlbumPerId(fotoForm.getIdAlbum());
 			if(fotografo != null) {
 				Foto foto = new Foto();
 				foto.setTitolo(fotoForm.getNome());
 				foto.setFotografo(fotografo);
-				List<Foto> fotos = fotografo.getFoto();
-				fotos.add(foto);
-				fotografo.setFoto(fotos);
-				this.fotoService.inserisciFoto(foto);
-				return "pannelloDiControllo.html";		//SUCCESSO
+					if(album != null) {
+						foto.setIndirizzo(fotoForm.getIndirizzo());
+						foto.setAlbum(album);
+						List<Foto> fotos = fotografo.getFoto();
+						fotos.add(foto);
+						fotografo.setFoto(fotos);
+						this.fotoService.inserisciFoto(foto);
+						List<Foto> fotoa = album.getFoto();
+						fotoa.add(foto);
+						album.setFoto(fotoa);
+						this.fotoService.inserisciFoto(foto);
+						return "confermaInserimentoFoto.html"; //SUCCESSO
+					}
+					else {
+						bindingResult.rejectValue("idAlbum", "wrong");
+						return "fotoForm.html";
+					}
 			}
 			else {
 				bindingResult.rejectValue("idFotografo", "wrong");
-				bindingResult.rejectValue("idAlbum", "wrong");
 					return "fotoForm.html";
 				}
 			}
 		return "fotoForm.html";
 
 		}
-
-	
-
 
 
 	@RequestMapping(value = "/fotoForm")
