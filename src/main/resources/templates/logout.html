@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org"
-	xmlns="htttp://www.w3.org/1999/html">
+<html>
 <head>
 
 <!--- basic page needs
    ================================================== -->
 <meta charset="utf-8">
-<title>SILPH admin</title>
+<title>SILPH login</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -89,9 +88,8 @@
 
 	</header>
 	<!-- end header -->
-
-
-	<!-- content
+	
+<!-- content
    ================================================== -->
 	<section id="content-wrap" class="site-page">
 		<div class="row">
@@ -101,8 +99,8 @@
 
 					<div class="primary-content"></div>
 
-					<h1 class="entry-title add-bottom">SILPH staff</h1>
-					<h4 class="">Operazioni:</h4>
+					<h1 class="entry-title add-bottom">Logout</h1>
+					<h4 class="">Confermi il logout?</h4>
 
 					<div class="row">
 						<div class="col-six tab-full"></div>
@@ -111,32 +109,12 @@
 
 					</div>
 
-					<form name="cForm" id="cForm" method="get" action="/fotoForm">
-						<button type="submit" class="half-width">Aggiungi foto</button>
+					<form name="cForm" id="cForm" method="post" th:action="@{/logout}">
+						<button type="submit" class="half-width">Conferma</button>
 					</form>
 
-					<form name="cForm" id="cForm" method="get" action="/albumForm">
-						<button type="submit" class="half-width">Aggiungi album</button>
-					</form>
-
-					<form name="cForm" id="cForm" method="get" action="/addFotografo">
-						<button type="submit" class="half-width">Aggiungi fotografo</button>
-					</form>
-
-					<form name="cForm" id="cForm" method="get" action="/mostraFoto">
-						<button type="submit" class="half-width">Mostra foto</button>
-					</form>
-
-					<form name="cForm" id="cForm" method="get" action="/mostraAlbum">
-						<button type="submit" class="half-width">Mostra album</button>
-					</form>
-
-					<form name="cForm" id="cForm" method="get" action="/mostrafotografi">
-						<button type="submit" class="half-width">Mostra fotografi</button>
-					</form>
-
-					<form name="cForm" id="cForm" method="get" action="/logout">
-						<button type="submit" class="half-width">Logout</button>
+					<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo">
+						<button type="submit" class="half-width">indietro</button>
 					</form>
 
 				</section>

@@ -20,6 +20,13 @@ public class SystemController {
 		return "login.html";
 	}
 	
+	//LOGOUT
+	@RequestMapping(value="/logout")
+	public String logout() {
+		return "logout.html";
+	}
+	
+	
 	//PannelloDiControllo
 	@RequestMapping(value="/pannelloDiControllo")
 	public String pannelloDiControllo() {

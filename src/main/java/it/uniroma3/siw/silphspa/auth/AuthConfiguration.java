@@ -28,6 +28,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter{
         .authorizeRequests()
         .antMatchers("/pannelloDiControllo").hasAnyAuthority("ADMIN")
         .antMatchers("/addFotografo").hasAnyAuthority("ADMIN")
+        .antMatchers("/logout").hasAnyAuthority("ADMIN")
         .anyRequest().permitAll()
         .and()
         .formLogin()
