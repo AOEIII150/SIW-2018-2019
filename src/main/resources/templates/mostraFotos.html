@@ -1,0 +1,16 @@
+<!DOCTYPE html >
+<html xmlns:th= "http://www.thymeleaf.org" xmlns="htttp://www.w3.org/1999/html">
+<head>
+</head>
+<body>
+	<div>
+		<h4> Fotos </h4>
+		<ul>
+		<li th:each="foto : ${fotos}">
+			<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" 
+					th:text="${foto.titolo}"></a>
+		</li>
+		</ul>
+	</div>
+</body>
+</html>

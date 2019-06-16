@@ -31,5 +31,10 @@ public class AlbumService {
 		try {return albumRepository.findById(id).get();}
 		catch(NoSuchElementException e) {return null;}
 	}
+
+	public List<Album> findByNome(String nome) {
+		try {return albumRepository.findByTitolo(nome);}
+		catch(NoSuchElementException e) {return null;}
+	}
 	
 }

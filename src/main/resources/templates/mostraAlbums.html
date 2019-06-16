@@ -1,0 +1,16 @@
+<!DOCTYPE html >
+<html xmlns:th= "http://www.thymeleaf.org" xmlns="htttp://www.w3.org/1999/html">
+<head>
+</head>
+<body>
+	<div>
+		<h4> Albums </h4>
+		<ul>
+		<li th:each="album : ${albums}">
+			<a th:href="@{'/mostraAlbum' + '/' + ${album.id}}" 
+					th:text="${album.titolo} + ' ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}"></a>
+		</li>
+		</ul>
+	</div>
+</body>
+</html>

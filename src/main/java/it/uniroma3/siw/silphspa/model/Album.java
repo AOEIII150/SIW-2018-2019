@@ -34,7 +34,7 @@ public class Album {
 		this.id = id;
 	}
 	public List<Foto> getFoto() {
-		return foto;
+		return this.foto;
 	}
 	public void setFoto(List<Foto> foto) {
 		this.foto = foto;

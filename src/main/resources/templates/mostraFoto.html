@@ -4,15 +4,14 @@
 </head>
 <body>
 	<div>
-		<h4> Fotografo </h4>
+		<h4> Foto </h4>
 		
-		Nome: <span th:text=${fotografo.nome}> </span>
-		
-		Cognome: <span th:text=${fotografo.cognome}> </span>
-		
+		Titolo: <span th:text="${foto.titolo}"> </span>
+		IndirizzoUrl: <span th:text="${foto.indirizzo}"></span>
+
 		<br/>
 		<br/>
-		<form name="cForm" id="cForm" method="get" action="/cercaFotografo">
+		<form name="cForm" id="cForm" method="get" action="/cercaFoto">
 				<button type="submit" class="half-width">Nuova ricerca</button>
 		</form>
 

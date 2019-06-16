@@ -77,7 +77,7 @@ public class FotografoController {
 						Fotografo f = this.fotografoService.fotografoPerId(id);
 						if(f!=null) {
 							model.addAttribute("fotografo", f);
-						return "fotografo.html";
+							return "fotografo.html";
 						}
 						else {
 							bindingResult.rejectValue("s3", "checkId");

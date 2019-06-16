@@ -4,15 +4,21 @@
 </head>
 <body>
 	<div>
-		<h4> Fotografo </h4>
+		<h4> Album </h4>
 		
-		Nome: <span th:text=${fotografo.nome}> </span>
+		Nome: <span th:text="${album.titolo}"> </span>
 		
-		Cognome: <span th:text=${fotografo.cognome}> </span>
-		
+		<br/>Foto:
+		<ul>
+		<li th:each="foto : ${fotos}">
+			<a th:href="@{'/mostraAlbum' + '/' + ${album.id}}" 
+				th:text="${foto.titolo} + ' ' +${album.indirizzo}"></a>
+		</li>
+		</ul>
+
 		<br/>
 		<br/>
-		<form name="cForm" id="cForm" method="get" action="/cercaFotografo">
+		<form name="cForm" id="cForm" method="get" action="/cercaAlbum">
 				<button type="submit" class="half-width">Nuova ricerca</button>
 		</form>
 

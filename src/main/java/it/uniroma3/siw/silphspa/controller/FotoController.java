@@ -9,12 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import it.uniroma3.siw.silphspa.model.Album;
 import it.uniroma3.siw.silphspa.model.Foto;
 import it.uniroma3.siw.silphspa.model.FotoForm;
 import it.uniroma3.siw.silphspa.model.Fotografo;
+import it.uniroma3.siw.silphspa.model.StringRicerca;
 import it.uniroma3.siw.silphspa.services.AlbumService;
 import it.uniroma3.siw.silphspa.services.FotoFormValidator;
 import it.uniroma3.siw.silphspa.services.FotoService;
@@ -53,7 +55,6 @@ public class FotoController {
 						List<Foto> fotos = fotografo.getFoto();
 						fotos.add(foto);
 						fotografo.setFoto(fotos);
-						this.fotoService.inserisciFoto(foto);
 						List<Foto> fotoa = album.getFoto();
 						fotoa.add(foto);
 						album.setFoto(fotoa);
@@ -73,8 +74,56 @@ public class FotoController {
 		return "fotoForm.html";
 
 		}
+	
+	@RequestMapping(value="/cercaFoto", method=RequestMethod.POST)
+	public String trovaFoto(@ModelAttribute("stringRicerca") StringRicerca stringRicerca, Model model, BindingResult bindingResult) {
+		
+		if(stringRicerca.getS1().equals("") && stringRicerca.getS2().equals("")) {
+			bindingResult.rejectValue("s3", "wrong");
+			return "ricercaFoto.html";
+		}
+		else {
+			if(!stringRicerca.getS1().equals("") && stringRicerca.getS2().equals("")) {
+				String titolo = stringRicerca.getS1().substring(0, 1).toUpperCase() + stringRicerca.getS1().substring(1).toLowerCase();
+				List<Foto> f = this.fotoService.findByTitolo(titolo);
+				model.addAttribute("fotos", f);
+				return "mostraFotos.html";
+			}
+			else {
+					Long id = Long.valueOf(stringRicerca.getS2()).longValue();
+					Foto f = this.fotoService.findById(id);
+					if(f!=null) {
+					model.addAttribute("foto", f);
+					return "mostraFoto.html";
+					}
+					else {
+						bindingResult.rejectValue("s3", "checkId");
+						return "ricercaFoto.html";
+					}
+			}
+		}
+		
+	}
 
+	@RequestMapping(value="/cercaFoto")
+	public String cercaFoto(Model model) {
+		model.addAttribute("stringRicerca", new StringRicerca());
+		return "ricercaFoto.html";
+	}
+	
 
+	@RequestMapping(value="/mostraFoto/{id}", method=RequestMethod.GET)
+	public String Foto(@PathVariable("id") Long id,Model model) {
+		Foto f = this.fotoService.findById(id);
+		if(f == null) {
+			return "/mostraFotos";
+		}
+		else {
+			model.addAttribute("foto", f);
+				return "mostraFoto.html";
+		}
+	}
+	
 	@RequestMapping(value = "/fotoForm")
 	public String fotoForm(Model model) {
 		model.addAttribute("fotoForm" , new FotoForm());
