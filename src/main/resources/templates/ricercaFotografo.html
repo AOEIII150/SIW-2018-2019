@@ -1,34 +1,149 @@
 <!DOCTYPE html>
-<html xmlns:th= "http://www.thymeleaf.org" xmlns="htttp://www.w3.org/1999/html">
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="htttp://www.w3.org/1999/html">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<div>
-	<h4>Inserisci dati fotografo:</h4>
-	</div>
-	<form th:action="@{/cercaFotografo}" method="POST" th:object="${stringRicerca}">
-		<table>
-			<tr>
-				<td>Nome fotografo:</td>
-				<td><input type="text" th:field="*{s1}" /></td>
-				
-				<td>Cognome fotografo:</td>
-				<td><input type="text" th:field="*{s2}" /></td>
-				
-				<td>ID fotografo:</td>
-				<td><input type="text" th:field="*{s3}" /></td>
-				
-					
-				<td th:if="${#fields.hasErrors('s3')}" th:errors="*{s3}" class="alert alert-error"></td>
-				
-				
-			</tr>
 
-		<tr>
-			<td><button type="submit">INVIO</button></td>
-		</tr>
+<!--- basic page needs
+   ================================================== -->
+<meta charset="utf-8">
+<title>Ricerca Fotografo</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- mobile specific metas
+   ================================================== -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+   ================================================== -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/vendor.css">
+<link rel="stylesheet" href="css/main.css">
+
+<!-- script
+   ================================================== -->
+<script src="js/modernizr.js"></script>
+<script src="js/pace.min.js"></script>
+
+<!-- favicons
+	================================================== -->
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+	<!-- header 
+   ================================================== -->
+	<header class="short-header">
+
+		<div class="gradient-block"></div>
+
+		<div class="row header-content">
+
+			<div class="logo">
+				<a href="/home">Author</a>
+			</div>
+
+			<nav id="main-nav-wrap">
+				<ul class="main-navigation sf-menu">
+					<li><a href="/" title="">Home</a></li>
+					<li class="has-children"><a href="/categorie" title="">Categorie</a>
+						<ul class="sub-menu">
+							<li><a href="/fotos">Foto</a></li>
+							<li><a href="/albums">Album</a></li>
+							<li><a href="/fotografi">Fotografi</a></li>
+						</ul></li>
+					<li class="has-children"><a href="/carrello"
+						title="">Carrello</a></li>
+					<li><a href="/about" title="">About</a></li>
+					<li class="current"><a href="/pannelloDiControllo" title="">Staff</a></li>
+				</ul>
+			</nav>
+			<!-- end main-nav-wrap -->
+
+			<div class="search-wrap">
+
+				<form role="search" method="get" class="search-form" action="#">
+					<label> <span class="hide-content">Search for:</span> <input
+						type="search" class="search-field"
+						placeholder="Type Your Keywords" value="" name="s"
+						title="Search for:" autocomplete="off">
+					</label> <input type="submit" class="search-submit" value="Search">
+				</form>
+
+				<a href="#" id="close-search" class="close-btn">Close</a>
+
+			</div>
+			<!-- end search wrap -->
+
+			<div class="triggers">
+				<a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
+				<a class="menu-toggle" href="#"><span>Menu</span></a>
+			</div>
+			<!-- end triggers -->
+
+		</div>
+
+	</header>
+	<!-- end header -->
+
+
+	<!-- content
+   ================================================== -->
+	<section id="content-wrap" class="site-page">
+		<div class="row">
+			<div class="col-twelve">
+
+				<section>
+
+					<div class="primary-content"></div>
+
+					<h1 class="entry-title add-bottom">Ricerca Fotografo:</h1>
+
+					<div class="row">
+						<div class="col-six tab-full"></div>
+
+						<div class="col-six tab-full"></div>
+
+					</div>
+
+					<form name="f" th:action="@{/cercaFotografo}" method="post" th:object=${stringRicerca}>
+						<fieldset>
+							<div>Nome fotografo:</div>
+							<input type="text" th:field="*{s1}" class="half-width"/>
+							
+							<div>Cognome fotografo:</div>
+							<input type="text" th:field="*{s2}" class="half-width"/>
+							
+							<div>ID Fotografo:</div>
+							<input type="number" th:field="*{s3}" class="half-width"/>
+							
+							<p th:if="${#fields.hasErrors('s3')}" th:errors="*{s3}" class="alert alert-error"></p>
 		
-		</table>
-	</form>
+							<button type="submit" class="submit button-primary full-width-on-mobile">CERCA</button>
+						</fieldset>
+					</form>
+					<!-- end form -->
+
+				</section>
+
+
+			</div>
+			<!-- end col-twelve -->
+		</div>
+		<!-- end row -->
+	</section>
+
+	<!-- Java Script
+   ================================================== -->
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script
+		src="http://maps.google.com/maps/api/js?v=3.13&amp;sensor=false"></script>
+	<script src="js/main.js"></script>
+
+</body>
+
 </html>
