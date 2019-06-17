@@ -118,10 +118,10 @@
 							<input type="number" th:field="*{idFotografo}" class="half-width"/>
 							<h4 th:if="${#fields.hasErrors('idFotografo')}" th:errors="*{idFotografo}" class="alert alert-error"></h4>
 							<div>ID Album:</div>
-							<input type="number" th:field="*{idAlbum}" class="idAlbum"/>
+							<input type="number" th:field="*{idAlbum}" class="half-width"/>
 							<h4 th:if="${#fields.hasErrors('idAlbum')}" th:errors="*{idAlbum}" class="alert alert-error"></h4>
 							<div>URL:</div>
-							<input type="text" th:field="*{indirizzo}" class="half-width"/>
+							<input type="url" th:field="*{indirizzo}" class="half-width"/>
 							<h4 th:if="${#fields.hasErrors('indirizzo')}" th:errors="*{indirizzo}" class="alert alert-error"></h4>
 							
 							<button type="submit" class="submit button-primary full-width-on-mobile">INSERISCI</button>

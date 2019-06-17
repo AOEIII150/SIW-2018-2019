@@ -118,7 +118,7 @@
 							<input type="text" th:field="*{cognome}" class="half-width"/>
 							<h4 th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}" class="alert alert-error"></h4>
 							<div>Immagine del profilo:</div>
-							<input type="text" th:field="*{imgProfilo}" class="half-width"/>
+							<input type="url" th:field="*{imgProfilo}" class="half-width"/>
 							<h4 th:if="${#fields.hasErrors('imgProfilo')}" th:errors="*{imgProfilo}" class="alert alert-error"></h4>
 							
 							<button type="submit" class="submit button-primary full-width-on-mobile">INSERISCI</button>
