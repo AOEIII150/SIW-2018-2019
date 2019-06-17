@@ -5,4 +5,6 @@ import it.uniroma3.siw.silphspa.model.SilphStaff;
 
 public interface SilphRepository extends JpaRepository<SilphStaff, Long>{
 
+	public SilphStaff findByUsername(String username);
+
 }

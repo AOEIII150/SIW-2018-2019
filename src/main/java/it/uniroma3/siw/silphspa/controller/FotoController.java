@@ -2,7 +2,6 @@ package it.uniroma3.siw.silphspa.controller;
 
 
 import java.util.List;
-
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +21,7 @@ import it.uniroma3.siw.silphspa.services.FotoFormValidator;
 import it.uniroma3.siw.silphspa.services.FotoService;
 import it.uniroma3.siw.silphspa.services.FotografoService;
 
+
 @Controller
 public class FotoController {
 
@@ -36,6 +36,8 @@ public class FotoController {
 
 	@Autowired
 	private FotoService fotoService;
+	
+
 
 	@RequestMapping(value = "/foto",method=RequestMethod.POST)
 	public String newFoto(@Valid @ModelAttribute("fotoForm") FotoForm fotoForm, Model model, BindingResult bindingResult) {
@@ -75,6 +77,13 @@ public class FotoController {
 
 		}
 	
+	@RequestMapping(value="/mostraFotos", method=RequestMethod.GET)
+	public String mostraFotos(Model model) {
+		List<Foto> fotos = this.fotoService.MostraTutti();
+		model.addAttribute("fotos",fotos);
+		return "mostraFotos.html";
+	}
+	
 	@RequestMapping(value="/cercaFoto", method=RequestMethod.POST)
 	public String trovaFoto(@ModelAttribute("stringRicerca") StringRicerca stringRicerca, Model model, BindingResult bindingResult) {
 		
@@ -87,6 +96,7 @@ public class FotoController {
 				String titolo = stringRicerca.getS1().substring(0, 1).toUpperCase() + stringRicerca.getS1().substring(1).toLowerCase();
 				List<Foto> f = this.fotoService.findByTitolo(titolo);
 				model.addAttribute("fotos", f);
+				model.addAttribute("utente","ADMIN");
 				return "mostraFotos.html";
 			}
 			else {
@@ -94,6 +104,7 @@ public class FotoController {
 					Foto f = this.fotoService.findById(id);
 					if(f!=null) {
 					model.addAttribute("foto", f);
+					model.addAttribute("utente", "ADMIN");
 					return "mostraFoto.html";
 					}
 					else {
@@ -124,7 +135,20 @@ public class FotoController {
 		}
 	}
 	
-	@RequestMapping(value = "/fotoForm")
+	@RequestMapping(value="/mostraFotoAdmin/{id}", method=RequestMethod.GET)
+	public String FotoAdmin(@PathVariable("id") Long id,Model model) {
+		Foto f = this.fotoService.findById(id);
+		if(f == null) {
+			return "/mostraFotos";
+		}
+		else {
+			model.addAttribute("utente", "ADMIN");
+			model.addAttribute("foto", f);
+				return "mostraFoto.html";
+		}
+	}
+	
+	@RequestMapping(value = "/addFoto")
 	public String fotoForm(Model model) {
 		model.addAttribute("fotoForm" , new FotoForm());
 		return "fotoForm.html";

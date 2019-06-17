@@ -8,7 +8,9 @@
 		<ul>
 		<li th:each="fotografo : ${fotografi}">
 			<a th:href="@{'/fotografo' + '/' + ${fotografo.id}}" 
-					th:text="${fotografo.nome} + ' ' +${fotografo.cognome}"></a>
+					th:text="${fotografo.nome} + ' ' +${fotografo.cognome}" th:if="${utente != 'ADMIN'}"></a>
+			<a th:href="@{'/fotografoAdmin' + '/' + ${fotografo.id}}" 
+					th:text="${fotografo.nome} + ' ' +${fotografo.cognome}" th:if="${utente == 'ADMIN'}"></a>
 		</li>
 		</ul>
 	</div>

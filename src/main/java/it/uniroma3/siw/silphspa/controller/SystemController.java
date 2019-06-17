@@ -1,12 +1,26 @@
 package it.uniroma3.siw.silphspa.controller;
 
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import it.uniroma3.siw.silphspa.model.SilphStaff;
+
+import it.uniroma3.siw.silphspa.services.SilphStaffService;
 
 @Controller
 public class SystemController {
 	
+	@Autowired
+	private SilphStaffService staffService;
+
 	
 	//HOME
 	@RequestMapping(value = "/")
@@ -29,7 +43,11 @@ public class SystemController {
 	
 	//PANNELLO DI CONTROLLO
 	@RequestMapping(value="/pannelloDiControllo")
-	public String pannelloDiControllo() {
+	public String pannelloDiControllo(Model model) {
+		UserDetails staff = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String username = staff.getUsername();
+		SilphStaff utente = this.staffService.findByUsername(username);
+		model.addAttribute("utente", utente);
 		return "pannelloDiControllo.html";
 	}
 	
@@ -38,26 +56,6 @@ public class SystemController {
 	public String categorie(Model model) {
 		model.addAttribute("categorie");
 		return "categorie.html";			//TODO
-	}
-	
-	//FOTOS
-	@RequestMapping(value = "/fotos")
-	public String fotos(Model model) {
-		model.addAttribute("fotos");
-		return "fotos.html";		//TODO
-	}
-	
-	//ALBUMS
-	@RequestMapping(value = "/albums")
-	public String albums(Model model) {
-		model.addAttribute("albums");
-		return "albums.html";			//TODO
-	}
-	
-	//FOTOGRAFI
-	@RequestMapping(value = "/fotografi")
-	public String fotografi() {
-		return "fotografi.html";		
 	}
 	
 	//CARRELLO
