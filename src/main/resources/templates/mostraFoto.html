@@ -7,16 +7,22 @@
 		<h4> Foto </h4>
 		
 		Titolo: <span th:text="${foto.titolo}"> </span>
-		IndirizzoUrl: <span th:text="${foto.indirizzo}"></span>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<img th:src="@{${foto.indirizzo}}" width="70px" height="70px">
 
 		<br/>
-		<br/>
-		<form name="cForm" id="cForm" method="get" action="/cercaFoto">
+		<br/>		
+		
+		<form name="cForm" id="cForm" method="get" action="/cercaFoto" th:if="${utente == 'ADMIN'}">
 				<button type="submit" class="half-width">Nuova ricerca</button>
 		</form>
 
-		<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo">
+		<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
 			<button type="submit" class="half-width">Torna all'area staff</button>
+		</form>
+		
+		<form name="cForm" id="cForm" method="get" action="/" th:if="${utente != 'ADMIN'}">
+			<button type="submit" class="half-width">Torna alla home</button>
 		</form>
 		
 	</div>

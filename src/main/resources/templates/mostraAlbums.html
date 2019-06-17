@@ -7,8 +7,10 @@
 		<h4> Albums </h4>
 		<ul>
 		<li th:each="album : ${albums}">
-			<a th:href="@{'/mostraAlbum' + '/' + ${album.id}}" 
-					th:text="${album.titolo} + ' ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}"></a>
+			<a th:href="@{'/mostraAlbum' + '/' + ${album.id}}"
+				th:text="${album.titolo} + ' ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}" th:if="${utente != 'ADMIN'}"></a>
+			<a th:href="@{'/mostraAlbumAdmin' + '/' + ${album.id}}"
+				th:text="${album.titolo} + ' ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}" th:if="${utente == 'ADMIN'}"></a>
 		</li>
 		</ul>
 	</div>

@@ -45,6 +45,13 @@ public class FotografoController {
 		}
 	}
 	
+	@RequestMapping(value="/mostraFotografi", method=RequestMethod.GET)
+	public String mostraFotografi(Model model) {
+		List<Fotografo> fotografi = this.fotografoService.MostraTutti();
+		model.addAttribute("fotografi",fotografi);
+		return "mostraFotografi.html";
+	}
+	
 	@RequestMapping(value="/cercaFotografo", method=RequestMethod.POST)
 	public String trovaFotografo(@ModelAttribute("stringRicerca") StringRicerca stringRicerca, Model model, BindingResult bindingResult) {
 		
@@ -54,21 +61,24 @@ public class FotografoController {
 			String cognome = stringRicerca.getS2().substring(0, 1).toUpperCase() + stringRicerca.getS2().substring(1).toLowerCase();
 			List<Fotografo> f = this.fotografoService.findByNomeAndCognome(nome,cognome);
 			model.addAttribute("fotografi", f);
-			return "fotografi.html";
+			model.addAttribute("utente","ADMIN");
+			return "mostraFotografi.html";
 		}
 		else {
 			if(!stringRicerca.getS1().equals("") && stringRicerca.getS2().equals("") && stringRicerca.getS3().equals("")) {
 				String nome = stringRicerca.getS1().substring(0, 1).toUpperCase() + stringRicerca.getS1().substring(1).toLowerCase();
 				List<Fotografo> f = this.fotografoService.findByNome(nome);
 				model.addAttribute("fotografi", f);
-				return "fotografi.html";
+				model.addAttribute("utente","ADMIN");
+				return "mostraFotografi.html";
 			}
 			else {
 				if(stringRicerca.getS1().equals("") && !stringRicerca.getS2().equals("") && stringRicerca.getS3().equals("")) {
 					String cognome = stringRicerca.getS2().substring(0, 1).toUpperCase() + stringRicerca.getS2().substring(1).toLowerCase();
 					List<Fotografo> f = this.fotografoService.findByCognome(cognome);
 					model.addAttribute("fotografi", f);
-					return "fotografi.html";
+					model.addAttribute("utente","ADMIN");
+					return "mostraFotografi.html";
 				}
 				else {
 					if((stringRicerca.getS1().equals("") && stringRicerca.getS2().equals("") && !stringRicerca.getS3().equals("")) ||
@@ -76,8 +86,9 @@ public class FotografoController {
 						Long id = Long.valueOf(stringRicerca.getS3()).longValue();
 						Fotografo f = this.fotografoService.fotografoPerId(id);
 						if(f!=null) {
+							model.addAttribute("utente", "ADMIN");
 							model.addAttribute("fotografo", f);
-							return "fotografo.html";
+							return "mostraFotografo.html";
 						}
 						else {
 							bindingResult.rejectValue("s3", "checkId");
@@ -110,11 +121,26 @@ public class FotografoController {
 	public String fotografo(@PathVariable("id") Long id,Model model) {
 		Fotografo f = this.fotografoService.fotografoPerId(id);
 		if(f == null) {
-			return "/fotografi";
+			return "/mostraFotografi";
 		}
 		else {
 			model.addAttribute("fotografo", f);
-			return "fotografo.html";
+			return "mostraFotografo.html";
+		}
+	}
+	
+	@RequestMapping(value="/fotografoAdmin/{id}", method=RequestMethod.GET)
+	public String fotografoAdmin(@PathVariable("id") Long id,Model model) {
+		
+		model.addAttribute("utente", "ADMIN");
+		
+		Fotografo f = this.fotografoService.fotografoPerId(id);
+		if(f == null) {
+			return "/mostraFotografi";
+		}
+		else {
+			model.addAttribute("fotografo", f);
+			return "mostraFotografo.html";
 		}
 	}
 }

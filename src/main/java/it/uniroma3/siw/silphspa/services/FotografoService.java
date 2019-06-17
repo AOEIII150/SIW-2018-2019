@@ -24,7 +24,7 @@ public class FotografoService {
 	
 	@Transactional
 	public List<Fotografo> MostraTutti(){
-		    return (List<Fotografo>)fotografoRepository.findAll();
+		    return (List<Fotografo>) fotografoRepository.findAll();
 	}
 
 	@Transactional

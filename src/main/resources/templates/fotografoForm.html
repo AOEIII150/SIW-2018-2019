@@ -51,9 +51,9 @@
 					<li><a href="/" title="">Home</a></li>
 					<li class="has-children"><a href="/categorie" title="">Categorie</a>
 						<ul class="sub-menu">
-							<li><a href="/fotos">Foto</a></li>
-							<li><a href="/albums">Album</a></li>
-							<li><a href="/fotografi">Fotografi</a></li>
+							<li><a href="/mostraFotos">Foto</a></li>
+							<li><a href="/mostraAlbums">Album</a></li>
+							<li><a href="/mostraFotografi">Fotografi</a></li>
 						</ul></li>
 					<li class="has-children"><a href="/carrello"
 						title="">Carrello</a></li>
@@ -117,6 +117,9 @@
 							<div>Cognome:</div>
 							<input type="text" th:field="*{cognome}" class="half-width"/>
 							<h4 th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}" class="alert alert-error"></h4>
+							<div>Immagine del profilo:</div>
+							<input type="text" th:field="*{imgProfilo}" class="half-width"/>
+							<h4 th:if="${#fields.hasErrors('imgProfilo')}" th:errors="*{imgProfilo}" class="alert alert-error"></h4>
 							
 							<button type="submit" class="submit button-primary full-width-on-mobile">INSERISCI</button>
 

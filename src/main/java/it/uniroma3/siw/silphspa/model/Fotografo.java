@@ -18,6 +18,7 @@ public class Fotografo {
 	private Long id;
 	private String nome;
 	private String cognome;
+	private String imgProfilo;
 	
 	@OneToMany (mappedBy = "fotografo")
 	private List<Foto> foto;
@@ -57,4 +58,12 @@ public class Fotografo {
 	public void setFoto(List<Foto> foto) {
 		this.foto = foto;
 	}
+	public String getImgProfilo() {
+		return imgProfilo;
+	}
+	public void setImgProfilo(String imgProfilo) {
+		this.imgProfilo = imgProfilo;
+	}
+	
+	
 }

@@ -11,19 +11,24 @@
 		<br/>Foto:
 		<ul>
 		<li th:each="foto : ${fotos}">
-			<a th:href="@{'/mostraAlbum' + '/' + ${album.id}}" 
-				th:text="${foto.titolo} + ' ' +${album.indirizzo}"></a>
+			<a th:text="${foto.titolo}"></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<img th:src="@{${foto.indirizzo}}" width="70px" height="70px">
 		</li>
 		</ul>
 
 		<br/>
 		<br/>
-		<form name="cForm" id="cForm" method="get" action="/cercaAlbum">
+		<form name="cForm" id="cForm" method="get" action="/cercaAlbum" th:if="${utente == 'ADMIN'}">
 				<button type="submit" class="half-width">Nuova ricerca</button>
 		</form>
 
-		<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo">
+		<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
 			<button type="submit" class="half-width">Torna all'area staff</button>
+		</form>
+		
+		<form name="cForm" id="cForm" method="get" action="/" th:if="${utente != 'ADMIN'}">
+			<button type="submit" class="half-width">Torna alla home</button>
 		</form>
 		
 	</div>
