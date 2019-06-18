@@ -50,47 +50,25 @@
 			<nav id="main-nav-wrap">
 				<ul class="main-navigation sf-menu">
 					<li><a href="/" title="">Home</a></li>
-					<li class="has-children"><a href="/categorie" title="">Categorie</a>
+					<li class="has-children">Categorie
 						<ul class="sub-menu">
 							<li><a href="/mostraFotos">Foto</a></li>
 							<li><a href="/mostraAlbums">Album</a></li>
 							<li><a href="/mostraFotografi">Fotografi</a></li>
 						</ul></li>
-					<li class="has-children"><a href="/carrello"
-						title="">Carrello</a></li>
+					<li class="has-children"><a href="/carrello" title="">Carrello</a></li>
 					<li><a href="/about" title="">About</a></li>
 					<li class="current"><a href="/pannelloDiControllo" title="">Staff</a></li>
 				</ul>
 			</nav>
 			<!-- end main-nav-wrap -->
 
-			<div class="search-wrap">
-
-				<form role="search" method="get" class="search-form" action="#">
-					<label> <span class="hide-content">Search for:</span> <input
-						type="search" class="search-field"
-						placeholder="Type Your Keywords" value="" name="s"
-						title="Search for:" autocomplete="off">
-					</label> <input type="submit" class="search-submit" value="Search">
-				</form>
-
-				<a href="#" id="close-search" class="close-btn">Close</a>
-
-			</div>
-			<!-- end search wrap -->
-
-			<div class="triggers">
-				<a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
-				<a class="menu-toggle" href="#"><span>Menu</span></a>
-			</div>
-			<!-- end triggers -->
-
 		</div>
 
 	</header>
 	<!-- end header -->
-	
-<!-- content
+
+	<!-- content
    ================================================== -->
 	<section id="content-wrap" class="site-page">
 		<div class="row">
@@ -109,14 +87,17 @@
 						<div class="col-six tab-full"></div>
 
 					</div>
-
-					<form name="cForm" id="cForm" method="post" th:action="@{/logout}">
-						<button type="submit" class="half-width">Conferma</button>
-					</form>
-
-					<form name="cForm" id="cForm" method="get" th:action="@{/pannelloDiControllo}">
-						<button type="submit" class="half-width">indietro</button>
-					</form>
+					<article class="brick entry format-standard animate-this">
+						<form name="cForm" id="cForm" method="post" th:action="@{/logout}">
+							<button type="submit" class="half-width">Conferma</button>
+						</form>
+					</article>
+					<article class="brick entry format-standard animate-this">
+						<form name="cForm" id="cForm" method="get"
+							th:action="@{/pannelloDiControllo}">
+							<button type="submit" class="half-width">indietro</button>
+						</form>
+					</article>
 
 				</section>
 

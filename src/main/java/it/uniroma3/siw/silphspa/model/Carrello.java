@@ -1,32 +1,37 @@
 package it.uniroma3.siw.silphspa.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
-public class Carrello {
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
+
+public final class Carrello {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	private String urlImmagine;
+	private static Carrello carrello;
 	
-	//GETTER E SETTER
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getUrlImmagine() {
-		return urlImmagine;
-	}
-	public void setUrlImmagine(String urlImmagine) {
-		this.urlImmagine = urlImmagine;
-	}
+	private List<Foto> fotos;
 	
+	private Carrello() {}
 	
+	@Bean
+	@Scope("singleton")
+	public static Carrello getCarrello() {
+		if(carrello == null) {
+			carrello = new Carrello();
+		}
+		return carrello;
+	}
+
+	public List<Foto> getFotos() {
+		if(fotos == null) {
+			fotos = new ArrayList<>();
+		}
+		return fotos;
+	}
+
+	public void setFotos(List<Foto> fotos) {
+		this.fotos = fotos;
+	}
 
 }

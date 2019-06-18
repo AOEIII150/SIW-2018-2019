@@ -67,29 +67,6 @@
 				</ul>
 			</nav>
 			
-			
-			<!-- end main-nav-wrap -->
-
-			<div class="search-wrap">
-
-				<form role="search" method="get" class="search-form" action="#">
-					<label> <span class="hide-content">Search for:</span> <input
-						type="search" class="search-field"
-						placeholder="Type Your Keywords" value="" name="s"
-						title="Search for:" autocomplete="off">
-					</label> <input type="submit" class="search-submit" value="Search">
-				</form>
-
-				<a href="#" id="close-search" class="close-btn">Close</a>
-
-			</div>
-			<!-- end search wrap -->
-
-			<div class="triggers">
-				<a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
-				<a class="menu-toggle" href="#"><span>Menu</span></a>
-			</div>
-			<!-- end triggers -->
 
 		</div>
 
@@ -126,7 +103,7 @@
 					<div class="entry-thumb">
 						<a th:href="@{'/fotografo' + '/' + ${fotografo.id}}" class="thumb-link" >
 						 
-						<img th:src="@{${fotografo.imgProfilo}}" width="256px" height="256px" class="center" >
+						<img th:src="@{${fotografo.imgProfilo}}" width="512px" height="512px" class="center" >
 						</a>
 					</div>
 
@@ -149,15 +126,21 @@
 	
 	
 <!-- PULSANTE TORNA INDIETRO -->
-
-					<form name="cForm" id="cForm" th:action="@{/categorie}" method="post"
-						th:object="${categorie}">
-						<fieldset>
-
-							<button type="submit" class="submit button-primary full-width-on-mobile">Indietro</button>
-
-						</fieldset>
-					</form>
+<<<<<<< HEAD
+	<article class="brick entry format-standard animate-this">
+	<div class="row">
+		<form name="cForm" id="cForm" th:action="@{/}" method="post"
+			th:object="${home}">
+			<button type="submit" class="half-widht">Indietro</button>
+		</form>
+	</div>
+	</article>
+=======
+					
+	<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
+			<button type="submit" class="submit button-primary full-width-on-mobile" >Indietro</button>
+	</form>
+>>>>>>> 1ce7d2dd96b065208c8be1930d68bf123c4b1337
 
 
 <!-- START BOTTOM FOOTER -->

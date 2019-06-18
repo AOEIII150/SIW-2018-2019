@@ -2,7 +2,8 @@
 <!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html class="no-js" lang="en" xmlns:th= "http://www.thymeleaf.org" xmlns="htttp://www.w3.org/1999/html">
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns="htttp://www.w3.org/1999/html">
 <!--<![endif]-->
 <head>
 
@@ -53,21 +54,21 @@
 
 			<nav id="main-nav-wrap">
 				<ul class="main-navigation sf-menu">
-					<li><a href="/home" title="">Home</a></li>
-					<li class="has-children"><a href="/categorie"
-						title="">Categorie</a>
+					<li><a href="/" title="">Home</a></li>
+					<li class="has-children"><a href="/categorie" title="">Categorie</a>
 						<ul class="sub-menu">
 							<li class="current"><a href="/mostraFotos">Foto</a></li>
 							<li><a href="/mostraAlbums">Album</a></li>
 							<li><a href="/mostraFotografi">Fotografi</a></li>
 						</ul></li>
-					<li><a href="/carrello" title="">Carrello</a></li>	
+					<li><a href="/carrello" title="">Carrello</a></li>
 					<li><a href="/about" title="">About</a></li>
 					<li><a href="/pannelloDiControllo" title="">Staff</a></li>
 				</ul>
 			</nav>
-			
-			
+<<<<<<< HEAD
+
+
 			<!-- end main-nav-wrap -->
 
 			<div class="search-wrap">
@@ -90,6 +91,10 @@
 				<a class="menu-toggle" href="#"><span>Menu</span></a>
 			</div>
 			<!-- end triggers -->
+=======
+			
+			
+>>>>>>> 1ce7d2dd96b065208c8be1930d68bf123c4b1337
 
 		</div>
 
@@ -103,7 +108,7 @@
 		<div class="row current-cat">
 			<div class="col-full">
 				<h1>Foto</h1>
-				<h4> Tutte le foto caricate</h4>
+				<h4>Tutte le foto caricate</h4>
 			</div>
 		</div>
 	</section>
@@ -116,51 +121,81 @@
 		<div class="row masonry">
 
 			<!-- brick-wrapper -->
-			
+
 			<div class="bricks-wrapper">
 
-		<div th:each="foto : ${fotos}">
-				<div class="grid-sizer"></div>
+				<div th:each="foto : ${fotos}">
+					<div class="grid-sizer"></div>
 
+<<<<<<< HEAD
+					<article class="brick entry format-standard animate-this">
+						<div class="entry-thumb">
+							<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}"
+								class="thumb-link"> <img th:src="@{${foto.indirizzo}}"
+								width="512px" height="512px" class="center">
+							</a>
+						</div>
+
+						<div class="entry-text">
+							<div class="entry-header">
+
+								<div class="entry-meta">
+									<span class="cat-links"> <a
+										th:href="@{'/mostraFoto' + '/' + ${foto.id}}"
+										th:text="${foto.titolo}" th:if="${utente != 'ADMIN'}"></a> <a
+										th:href="@{'/mostraFotoAdmin' + '/' + ${foto.id}}"
+										th:text="${foto.titolo}" th:if="${utente == 'ADMIN'}"></a>
+									</span>
+
+
+								</div>
+=======
 				<article class="brick entry format-standard animate-this">
 					<div class="entry-thumb">
-						<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" class="thumb-link" >
+						<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente != 'ADMIN'}">
+						<img th:src="@{${foto.indirizzo}}" width="1024px" height="1024px" class="center">
+						</a>
+						<a th:href="@{'/mostraFotoA' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente == 'ADMIN'}">
 						<img th:src="@{${foto.indirizzo}}" width="1024px" height="1024px" class="center">
 						</a>
 					</div>
 
 					<div class="entry-text">
 						<div class="entry-header">
-
 							<div class="entry-meta">
 								<span class="cat-links"> 			
-								<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" th:text="${foto.titolo}" th:if="${utente != 'ADMIN'}"></a>
-								<a th:href="@{'/mostraFotoAdmin' + '/' + ${foto.id}}" th:text="${foto.titolo}" th:if="${utente == 'ADMIN'}"></a>
+								<a th:text="${foto.titolo}"></a>
 								</span>
+>>>>>>> 1ce7d2dd96b065208c8be1930d68bf123c4b1337
 							</div>
 						</div>
-					</div>
-				</article>
+					</article>
 				</div>
 			</div>
 		</div>
 	</section>
-	
-	
-<!-- PULSANTE TORNA INDIETRO -->
 
-					<form name="cForm" id="cForm" th:action="@{/categorie}" method="post"
-						th:object="${categorie}">
-						<fieldset>
+<<<<<<< HEAD
 
-							<button type="submit" class="submit button-primary full-width-on-mobile">Indietro</button>
+	<!-- PULSANTE TORNA INDIETRO -->
+	<article class="brick entry format-standard animate-this">
+	<div class="row">
+		<form name="cForm" id="cForm" th:action="@{/}" method="post"
+			th:object="${home}">
+			<button type="submit" class="half-widht">Indietro</button>
+		</form>
+	</div>
+	</article>
 
-						</fieldset>
-					</form>
+=======
+	<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
+			<button type="submit" class="submit button-primary full-width-on-mobile" >Indietro</button>
+	</form>
+>>>>>>> 1ce7d2dd96b065208c8be1930d68bf123c4b1337
 
 
-<!-- START BOTTOM FOOTER -->
-<footer>
+	<!-- START BOTTOM FOOTER -->
+	<footer>
 		<div class="footer-bottom">
 			<div class="row">
 

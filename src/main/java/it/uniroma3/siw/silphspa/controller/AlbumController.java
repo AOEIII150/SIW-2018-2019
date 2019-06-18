@@ -2,10 +2,9 @@ package it.uniroma3.siw.silphspa.controller;
 
 	
 import java.util.List;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,12 +16,11 @@ import it.uniroma3.siw.silphspa.model.Album;
 import it.uniroma3.siw.silphspa.model.AlbumForm;
 import it.uniroma3.siw.silphspa.model.Foto;
 import it.uniroma3.siw.silphspa.model.Fotografo;
-import it.uniroma3.siw.silphspa.model.SilphStaff;
 import it.uniroma3.siw.silphspa.model.StringRicerca;
 import it.uniroma3.siw.silphspa.services.AlbumService;
 import it.uniroma3.siw.silphspa.services.AlbumFormValidator;
 import it.uniroma3.siw.silphspa.services.FotografoService;
-import it.uniroma3.siw.silphspa.services.SilphStaffService;
+
 
 
 	@Controller
@@ -36,9 +34,6 @@ import it.uniroma3.siw.silphspa.services.SilphStaffService;
 		
 		@Autowired
 		private FotografoService fotografoService;
-		
-		@Autowired
-		private SilphStaffService staffService;
 		
 
 		@RequestMapping(value = "/album",method=RequestMethod.POST)

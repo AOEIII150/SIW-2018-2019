@@ -50,40 +50,19 @@
 			<nav id="main-nav-wrap">
 				<ul class="main-navigation sf-menu">
 					<li><a href="/" title="">Home</a></li>
-					<li class="has-children"><a href="/categorie" title="">Categorie</a>
+					<li class="has-children">Categorie
 						<ul class="sub-menu">
 							<li><a href="/mostraFotos">Foto</a></li>
 							<li><a href="/MostraAlbums">Album</a></li>
 							<li><a href="/mostraFotografi">Fotografi</a></li>
 						</ul></li>
-					<li class="has-children"><a href="/carrello"
-						title="">Carrello</a></li>
+					<li class="has-children"><a href="/carrello" title="">Carrello</a></li>
 					<li><a href="/about" title="">About</a></li>
 					<li class="current"><a href="/pannelloDiControllo" title="">Staff</a></li>
 				</ul>
 			</nav>
 			<!-- end main-nav-wrap -->
 
-			<div class="search-wrap">
-
-				<form role="search" method="get" class="search-form" action="#">
-					<label> <span class="hide-content">Search for:</span> <input
-						type="search" class="search-field"
-						placeholder="Type Your Keywords" value="" name="s"
-						title="Search for:" autocomplete="off">
-					</label> <input type="submit" class="search-submit" value="Search">
-				</form>
-
-				<a href="#" id="close-search" class="close-btn">Close</a>
-
-			</div>
-			<!-- end search wrap -->
-
-			<div class="triggers">
-				<a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
-				<a class="menu-toggle" href="#"><span>Menu</span></a>
-			</div>
-			<!-- end triggers -->
 
 		</div>
 
@@ -102,7 +81,9 @@
 					<div class="primary-content"></div>
 
 					<h1 class="entry-title add-bottom">SILPH staff</h1>
-					<h4><span th:text="Bentornato + ' ' +${utente.username}"></span></h4>
+					<h4>
+						<span th:text="Bentornato + ' ' +${utente.username}"></span>
+					</h4>
 					<h4 class="">Operazioni:</h4>
 
 					<div class="row">
@@ -111,36 +92,49 @@
 						<div class="col-six tab-full"></div>
 
 					</div>
-					
-					<form name="cForm" id="cForm" method="get" action="/addFotografo">
-						<button type="submit" class="half-width">Aggiungi fotografo</button>
-					</form>
-					
-					<form name="cForm" id="cForm" method="get" action="/addAlbum">
-						<button type="submit" class="half-width">Aggiungi album</button>
-					</form>
 
-					<form name="cForm" id="cForm" method="get" action="/addFoto">
-						<button type="submit" class="half-width">Aggiungi foto</button>
-					</form>
-					
-					
-					<form name="cForm" id="cForm" method="get" action="/cercaFotografo">
-						<button type="submit" class="half-width">Ricerca fotografo</button>
-					</form>
+					<article class="brick entry format-standard animate-this">
+						<form name="cForm" id="cForm" method="get" action="/addFotografo">
+							<button type="submit" class="half-width">Aggiungi
+								fotografo</button>
+						</form>
+					</article>
 
+					<article class="brick entry format-standard animate-this">
+						<form name="cForm" id="cForm" method="get" action="/addAlbum">
+							<button type="submit" class="half-width">Aggiungi album</button>
+						</form>
+					</article>
 
-					<form name="cForm" id="cForm" method="get" action="/cercaAlbum">
-						<button type="submit" class="half-width">Ricerca album</button>
-					</form>
+					<article class="brick entry format-standard animate-this">
+						<form name="cForm" id="cForm" method="get" action="/addFoto">
+							<button type="submit" class="half-width">Aggiungi foto</button>
+						</form>
+					</article>
 
-					<form name="cForm" id="cForm" method="get" action="/cercaFoto">
-						<button type="submit" class="half-width">Ricerca foto</button>
-					</form>
+					<article class="brick entry format-standard animate-this">
+						<form name="cForm" id="cForm" method="get"
+							action="/cercaFotografo">
+							<button type="submit" class="half-width">Ricerca
+								fotografo</button>
+						</form>
+					</article>
 
-					<form name="cForm" id="cForm" method="get" action="/logout">
-						<button type="submit" class="half-width">Logout</button>
-					</form>
+					<article class="brick entry format-standard animate-this">
+						<form name="cForm" id="cForm" method="get" action="/cercaAlbum">
+							<button type="submit" class="half-width">Ricerca album</button>
+						</form>
+					</article>
+					<article class="brick entry format-standard animate-this">
+						<form name="cForm" id="cForm" method="get" action="/cercaFoto">
+							<button type="submit" class="half-width">Ricerca foto</button>
+						</form>
+					</article>
+					<article class="brick entry format-standard animate-this">
+						<form name="cForm" id="cForm" method="get" action="/logout">
+							<button type="submit" class="half-width">Logout</button>
+						</form>
+					</article>
 
 				</section>
 
