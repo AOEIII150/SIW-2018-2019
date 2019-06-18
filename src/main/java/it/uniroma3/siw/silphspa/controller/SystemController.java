@@ -3,6 +3,9 @@ package it.uniroma3.siw.silphspa.controller;
 
 
 
+import java.util.List;
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,8 +14,9 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import it.uniroma3.siw.silphspa.model.Foto;
 import it.uniroma3.siw.silphspa.model.SilphStaff;
-
+import it.uniroma3.siw.silphspa.services.FotoService;
 import it.uniroma3.siw.silphspa.services.SilphStaffService;
 
 @Controller
@@ -21,11 +25,21 @@ public class SystemController {
 	@Autowired
 	private SilphStaffService staffService;
 
+	@Autowired
+	private FotoService fotoService;
 	
 	//HOME
 	@RequestMapping(value = "/")
 	public String home(Model model) {
+		List<Foto> fotos = this.fotoService.MostraTutti();
+		Random random = new Random();
+        int index = random.nextInt(fotos.size());
+        index++;
+		Foto f = this.fotoService.findById(5);
+		model.addAttribute("foto", f);
+		
 		return "index.html";
+	
 	}
 	
 	//LOGIN

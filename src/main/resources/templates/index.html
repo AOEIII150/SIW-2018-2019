@@ -116,8 +116,9 @@
 								<li>
 									<div class="featured-post-slide">
 
-										<div class="post-background"
-											style="background-image: url('images/thumbs/featured/featured-2.jpg');"></div>
+										<div class="post-background" style="overflow: hidden;">
+										<img th:src="@{${foto.indirizzo}}" style="width:100%;height:100%;" >
+											</div>
 
 										<div class="overlay"></div>
 
@@ -174,7 +175,7 @@
 
 					<div class="entry-thumb">
 						<a href="single-standard.html" class="thumb-link"> <img
-							src="images/thumbs/diagonal-building.jpg" alt="building">
+							th:src="@{${foto.indirizzo}}" alt="building">
 						</a>
 					</div>
 
