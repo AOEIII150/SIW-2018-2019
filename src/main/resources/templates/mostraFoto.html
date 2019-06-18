@@ -25,9 +25,9 @@
 			<button type="submit" class="half-width">Torna alla home</button>
 		</form>
 		
-		<a th:href="@{'/fotoCarrello' + '/' + ${foto.id}}" class="thumb-link">
+		<form name="cForm" th:href="@{'/fotoCarrello' + '/' + ${foto.id}}" class="thumb-link">
 			<button type="submit" class="half-width" th:if="${utente != 'ADMIN'}">Aggiungi al carrello</button>
-		</a>
+		</form>
 		
 	</div>
 </body>
