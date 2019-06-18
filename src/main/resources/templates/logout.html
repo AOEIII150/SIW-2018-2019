@@ -56,8 +56,7 @@
 							<li><a href="/mostraAlbums">Album</a></li>
 							<li><a href="/mostraFotografi">Fotografi</a></li>
 						</ul></li>
-					<li class="has-children"><a href="/carrello"
-						title="">Carrello</a></li>
+					<li class="has-children"><a href="/carrello" title="">Carrello</a></li>
 					<li><a href="/about" title="">About</a></li>
 					<li class="current"><a href="/pannelloDiControllo" title="">Staff</a></li>
 				</ul>
@@ -68,8 +67,8 @@
 
 	</header>
 	<!-- end header -->
-	
-<!-- content
+
+	<!-- content
    ================================================== -->
 	<section id="content-wrap" class="site-page">
 		<div class="row">
@@ -88,14 +87,17 @@
 						<div class="col-six tab-full"></div>
 
 					</div>
-
-					<form name="cForm" id="cForm" method="post" th:action="@{/logout}">
-						<button type="submit" class="half-width">Conferma</button>
-					</form>
-
-					<form name="cForm" id="cForm" method="get" th:action="@{/pannelloDiControllo}">
-						<button type="submit" class="half-width">indietro</button>
-					</form>
+					<article class="brick entry format-standard animate-this">
+						<form name="cForm" id="cForm" method="post" th:action="@{/logout}">
+							<button type="submit" class="half-width">Conferma</button>
+						</form>
+					</article>
+					<article class="brick entry format-standard animate-this">
+						<form name="cForm" id="cForm" method="get"
+							th:action="@{/pannelloDiControllo}">
+							<button type="submit" class="half-width">indietro</button>
+						</form>
+					</article>
 
 				</section>
 
