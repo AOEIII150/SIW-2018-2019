@@ -79,8 +79,7 @@
 	<section id="page-header">
 		<div class="row current-cat">
 			<div class="col-full">
-				<h1>Foto</h1>
-				<h4> Tutte le foto caricate</h4>
+				<h1><font size="30px">Foto</font></h1>
 			</div>
 		</div>
 	</section>
@@ -113,10 +112,20 @@
 						<div class="entry-header">
 							<div class="entry-meta">
 								<span class="cat-links"> 			
-								<a th:text="${foto.titolo}"></a>
+									<a th:text="${foto.fotografo.nome} + ' ' +${foto.fotografo.cognome}"></a>
 								</span>
 							</div>
+							
+							<h1 class="entry-title">
+								<a th:text="${foto.titolo}"></a>
+							</h1>
+							
 						</div>
+						
+						<div class="entry-excerpt">Lorem ipsum Sed eiusmod esse
+							aliqua sed incididunt aliqua incididunt mollit id et sit proident
+							dolor nulla sed</div>
+	
 					</div>
 				</article>
 				</div>

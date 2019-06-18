@@ -33,13 +33,13 @@ public class DBPopulation implements ApplicationRunner{
 
         System.out.println("Storing users...");
 
-        SilphStaff admin = new SilphStaff("martina", "mpassword", "ADMIN");
-        String adminPassword = new BCryptPasswordEncoder().encode("mpassword");
+        SilphStaff admin = new SilphStaff("martina", "mpas", "ADMIN");
+        String adminPassword = new BCryptPasswordEncoder().encode("mpas");
         admin.setPassword(adminPassword);
         admin = this.userRepository.save(admin);
 
-        SilphStaff admin2 = new SilphStaff("simone", "spassword", "ADMIN");
-        String admin2Password = new BCryptPasswordEncoder().encode("spassword");
+        SilphStaff admin2 = new SilphStaff("simone", "spas", "ADMIN");
+        String admin2Password = new BCryptPasswordEncoder().encode("spas");
         admin2.setPassword(admin2Password);
         admin2 = this.userRepository.save(admin2);
 
