@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import it.uniroma3.siw.silphspa.model.Album;
-import it.uniroma3.siw.silphspa.model.Carrello;
 import it.uniroma3.siw.silphspa.model.Foto;
 import it.uniroma3.siw.silphspa.model.FotoForm;
 import it.uniroma3.siw.silphspa.model.Fotografo;
@@ -157,12 +156,5 @@ public class FotoController {
 		return "fotoForm.html";
 	}
 	
-	@RequestMapping(value="/fotoCarrello")
-	public String fotoCarrello(@ModelAttribute("foto") Foto foto, Model model) {
-		Carrello c = Carrello.getCarrello();
-		List<Foto> fotos = c.getFotos();
-		fotos.add(foto);
-		model.addAttribute("fotos",fotos);
-		return "mostraCarrello.html";
-	}
+
 }

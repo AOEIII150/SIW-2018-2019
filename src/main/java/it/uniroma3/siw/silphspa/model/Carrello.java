@@ -1,7 +1,8 @@
 package it.uniroma3.siw.silphspa.model;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
@@ -10,9 +11,11 @@ public final class Carrello {
 	
 	private static Carrello carrello;
 	
-	private List<Foto> fotos;
+	private Set<Foto> fotos;
 	
-	private Carrello() {}
+	private Carrello() {
+		this.fotos = new HashSet<>();
+	}
 	
 	@Bean
 	@Scope("singleton")
@@ -23,15 +26,13 @@ public final class Carrello {
 		return carrello;
 	}
 
-	public List<Foto> getFotos() {
-		if(fotos == null) {
-			fotos = new ArrayList<>();
-		}
-		return fotos;
+	public Set<Foto> getFotos() {
+		return this.fotos;
 	}
 
-	public void setFotos(List<Foto> fotos) {
+	public void setFotos(Set<Foto> fotos) {
 		this.fotos = fotos;
 	}
 
+	
 }

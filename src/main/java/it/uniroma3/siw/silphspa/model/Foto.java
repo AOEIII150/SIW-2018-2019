@@ -53,5 +53,17 @@ public class Foto {
 	public void setAlbum(Album album) {
 		this.album = album;
 	}
+	@Override
+	public int hashCode() {
+		return this.id.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Foto foto = (Foto) obj;
+		return this.id.equals(foto.getId());
+	}
+	
+	
 
 }
