@@ -35,7 +35,7 @@ public class SystemController {
 		Random random = new Random();
         int index = random.nextInt(fotos.size());
         index++;
-		Foto f = this.fotoService.findById(5);
+		Foto f = this.fotoService.findById(index);
 		model.addAttribute("foto", f);
 		
 		return "index.html";
