@@ -2,14 +2,15 @@
 <!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html class="no-js" lang="en" xmlns:th= "http://www.thymeleaf.org" xmlns="htttp://www.w3.org/1999/html">
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns="htttp://www.w3.org/1999/html">
 <!--<![endif]-->
 <head>
 
 <!--- basic page needs
    ================================================== -->
 <meta charset="utf-8">
-<title>Foto</title>
+<title>Album</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -53,20 +54,20 @@
 
 			<nav id="main-nav-wrap">
 				<ul class="main-navigation sf-menu">
-					<li><a href="/home" title="">Home</a></li>
+					<li><a href="/" title="">Home</a></li>
 					<li class="has-children">Categorie
 						<ul class="sub-menu">
-							<li class="current"><a href="/mostraFotos">Foto</a></li>
-							<li><a href="/mostraAlbums">Album</a></li>
+							<li><a href="/mostraFotos">Foto</a></li>
+							<li class="current"><a href="/mostraAlbums">Album</a></li>
 							<li><a href="/mostraFotografi">Fotografi</a></li>
 						</ul></li>
-					<li><a href="/mostraCarrello" title="">Carrello</a></li>	
+					<li><a href="/mostraCarrello" title="">Carrello</a></li>
 					<li><a href="/about" title="">About</a></li>
 					<li><a href="/pannelloDiControllo" title="">Staff</a></li>
 				</ul>
 			</nav>
-			
-			
+
+
 
 		</div>
 
@@ -79,8 +80,8 @@
 	<section id="page-header">
 		<div class="row current-cat">
 			<div class="col-full">
-				<h1>Foto</h1>
-				<h4> Tutte le foto caricate</h4>
+				<h1>Album</h1>
+				<h4>Tutti gli album caricati</h4>
 			</div>
 		</div>
 	</section>
@@ -93,47 +94,49 @@
 		<div class="row masonry">
 
 			<!-- brick-wrapper -->
-			
+
 			<div class="bricks-wrapper">
 
-		<div th:each="foto : ${fotos}">
-				<div class="grid-sizer"></div>
+				<div th:each="album : ${albums}">
+					<div class="grid-sizer"></div>
 
-				<article class="brick entry format-standard animate-this">
-					<div class="entry-thumb">
-						<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente != 'ADMIN'}">
-						<img th:src="@{${foto.indirizzo}}" width="1024px" height="512px" class="center">
-						</a>
-						<a th:href="@{'/mostraFotoA' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente == 'ADMIN'}">
-						<img th:src="@{${foto.indirizzo}}" width="1024px" height="512px" class="center">
-						</a>
-					</div>
+					<article class="brick entry format-standard animate-this">
+						<div class="entry-thumb">
 
-					<div class="entry-text">
-						<div class="entry-header">
-							<div class="entry-meta">
-								<span class="cat-links"> 			
-								<a th:text="${foto.titolo}"></a>
-								</span>
+						</div>
+
+						<div class="entry-text">
+							<div class="entry-header">
+
+								<div class="entry-meta">
+									<span class="cat-links"> <a
+										th:href="@{'/mostraAlbum' + '/' + ${album.id}}"
+										th:text="${album.titolo} + ' ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}"
+										th:if="${utente != 'ADMIN'}"></a> <a
+										th:href="@{'/mostraAlbumAdmin' + '/' + ${album.id}}"
+										th:text="${album.titolo} + ' ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}"
+										th:if="${utente == 'ADMIN'}"></a>
+									</span>
+								</div>
 							</div>
 						</div>
-					</div>
-				</article>
+					</article>
 				</div>
 			</div>
 		</div>
 	</section>
-	
-	
-<!-- PULSANTE TORNA INDIETRO -->
 
+
+	<!-- PULSANTE TORNA INDIETRO -->
+
+	
 	<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
 			<button type="submit" class="submit button-primary full-width-on-mobile" >Indietro</button>
 	</form>
+	
 
-
-<!-- START BOTTOM FOOTER -->
-<footer>
+	<!-- START BOTTOM FOOTER -->
+	<footer>
 		<div class="footer-bottom">
 			<div class="row">
 

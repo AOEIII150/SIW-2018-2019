@@ -2452,7 +2452,7 @@ header .logo a {
 		width: 100% !important;
 		float: none !important;
 		clear: both !important;
-		margin-left: 0;
+		margin-left: 50;
 		margin-right: 0;
 		padding: 0;
 	}
