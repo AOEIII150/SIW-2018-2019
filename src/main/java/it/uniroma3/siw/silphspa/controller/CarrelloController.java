@@ -26,8 +26,10 @@ public class CarrelloController {
 		Foto f = this.fotoService.findById(id);
 		Set<Foto> fotos = c.getFotos();
 		fotos.add(f);
-		model.addAttribute("carrello", c);
-		return "mostraCarrello.html";
+		//model.addAttribute("carrello", c);
+		model.addAttribute("foto", f);
+		model.addAttribute("aggiunto", "TRUE");
+		return "mostraFoto.html";
 	}
 	
 	@RequestMapping(value="/mostraCarrello")

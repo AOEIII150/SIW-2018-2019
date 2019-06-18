@@ -1,0 +1,28 @@
+<!DOCTYPE html >
+<html xmlns:th= "http://www.thymeleaf.org" xmlns="htttp://www.w3.org/1999/html">
+<head>
+</head>
+<body>
+	<div>
+		<h4> Richiesta </h4>
+		
+		Nome: <span th:text="${richiesta.nome}"> </span>
+		<br>Email: <span th:text="${richiesta.email}"> </span>
+		<br>Descrizione: <span th:text="${richiesta.descrizione}"> </span>
+		
+		<br/>Foto:
+		<ul>
+		<li th:each="foto : ${richiesta.fotos}">
+			<a th:text="${foto.titolo}"></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<img th:src="@{${foto.indirizzo}}" width="70px" height="70px">
+		</li>
+		</ul>
+		
+		<form name="cForm" id="cForm" method="get" action="/" th:if="${utente != 'ADMIN'}">
+			<button type="submit" class="half-width">Torna alla home</button>
+		</form>
+
+	</div>
+</body>
+</html>

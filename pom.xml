@@ -78,13 +78,13 @@
 		<dependency>
 		  <groupId>org.springframework.security</groupId>
 		  <artifactId>spring-security-taglibs</artifactId>
-		  <version>5.0.3.RELEASE</version>
+		  <version>5.0.3.RELEASE</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 
 		<dependency>
 		  <groupId>org.springframework.security</groupId>
 		  <artifactId>spring-security-taglibs</artifactId>
-		  <version>5.0.3.RELEASE</version>
+		  <version>5.0.3.RELEASE</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 	</dependencies>
 

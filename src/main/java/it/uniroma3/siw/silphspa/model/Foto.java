@@ -1,5 +1,6 @@
 package it.uniroma3.siw.silphspa.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

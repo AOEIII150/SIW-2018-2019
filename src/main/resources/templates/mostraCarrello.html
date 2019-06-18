@@ -60,7 +60,7 @@
 							<li><a href="/mostraAlbums">Album</a></li>
 							<li><a href="/mostraFotografi">Fotografi</a></li>
 						</ul></li>
-					<li class="current"><a href="/mostraCarrello" title="">Carrello</a></li>	
+					<li class="current"><a href="/mostraCarrello">Carrello</a></li>	
 					<li><a href="/about" title="">About</a></li>
 					<li><a href="/pannelloDiControllo" title="">Staff</a></li>
 				</ul>
@@ -126,10 +126,9 @@
 	
 <!-- PULSANTE TORNA INDIETRO -->
 
-	<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
-			<button type="submit" class="submit button-primary full-width-on-mobile" >Indietro</button>
+	<form name="cForm" id="cForm" method="get" action="/inoltraRichiesta" th:if="${utente != 'ADMIN'}">
+			<button type="submit" class="submit button-primary full-width-on-mobile" >Inoltra una richiesta</button>
 	</form>
-
 
 <!-- START BOTTOM FOOTER -->
 <footer>

@@ -81,8 +81,7 @@
 
 					<div class="primary-content"></div>
 
-					<h1 class="entry-title add-bottom">SILPH staff accesso
-						riservato</h1>
+					<h1 class="entry-title add-bottom">Form di richiesta:</h1>
 
 					<div class="row">
 						<div class="col-six tab-full"></div>
@@ -91,26 +90,19 @@
 
 					</div>
 
-					<form name="cForm" id="cForm" th:action="@{/login}" method="post"
-						th:object="${silph}">
+					<form name="r" th:action="@{/richiesta}" method="post" th:object=${richiesta}>
 						<fieldset>
-
-							<div class="form-field">
-								<input th:field="*{username}" type="text" id="cUsername"
-									class="half-width" placeholder="Username" value="">
-								<p class="errors" th:if="${#fields.hasErrors('username')}"
-									th:errors="*{username}"></p>
+							<div>Nome:</div>
+							<input type="text" th:field="*{nome}" class="half-width"/>
+							<div>Email:</div>
+							<input type="text" th:field="*{email}" class="half-width"/>
+							<h4 th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="alert alert-error"></h4>
+							<div>Descrizione utilizzo fotografie:</div>
+							<input type="text" th:field="*{descrizione}" class="half-width"/>
+							<div th:each="foto : ${carrello.fotos}">
+								<a th:text="${foto.titolo}"></a>
 							</div>
-
-							<div class="form-field">
-								<input th:field="*{password}" type="password" id="cPassword"
-									class="half-width" placeholder="Password" value="">
-								<p class="errors" th:if="${#fields.hasErrors('password')}"
-									th:errors="*{password}"></p>
-							</div>
-
-							<button type="submit"
-								class="submit button-primary full-width-on-mobile">LOGIN</button>
+							<button type="submit" class="submit button-primary full-width-on-mobile">INVIA</button>
 
 						</fieldset>
 					</form>
