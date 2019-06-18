@@ -62,6 +62,7 @@ public class FotografoController {
 			List<Fotografo> f = this.fotografoService.findByNomeAndCognome(nome,cognome);
 			model.addAttribute("fotografi", f);
 			model.addAttribute("utente","ADMIN");
+			model.addAttribute("stringRicerca", stringRicerca);
 			return "mostraFotografi.html";
 		}
 		else {
@@ -70,6 +71,7 @@ public class FotografoController {
 				List<Fotografo> f = this.fotografoService.findByNome(nome);
 				model.addAttribute("fotografi", f);
 				model.addAttribute("utente","ADMIN");
+				model.addAttribute("stringRicerca", stringRicerca);
 				return "mostraFotografi.html";
 			}
 			else {
@@ -78,6 +80,7 @@ public class FotografoController {
 					List<Fotografo> f = this.fotografoService.findByCognome(cognome);
 					model.addAttribute("fotografi", f);
 					model.addAttribute("utente","ADMIN");
+					model.addAttribute("stringRicerca", stringRicerca);
 					return "mostraFotografi.html";
 				}
 				else {
@@ -108,6 +111,11 @@ public class FotografoController {
 	@RequestMapping(value="/cercaFotografo")
 	public String cercaFotografo(Model model) {
 		model.addAttribute("stringRicerca", new StringRicerca());
+		return "ricercaFotografo.html";
+	}
+	
+	@RequestMapping(value="/cercaFotografoIndietro")
+	public String cercafotografoIndietro() {
 		return "ricercaFotografo.html";
 	}
 	

@@ -9,7 +9,7 @@
 <!--- basic page needs
    ================================================== -->
 <meta charset="utf-8">
-<title>Carrello</title>
+<title>Foto</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -53,41 +53,22 @@
 
 			<nav id="main-nav-wrap">
 				<ul class="main-navigation sf-menu">
-					<li><a href="/" title="">Home</a></li>
-					<li class="has-children"><a href="/categorie"
-						title="">Categorie</a>
+					<li><a href="/home" title="">Home</a></li>
+					<li class="has-children">Categorie
 						<ul class="sub-menu">
-							<li><a href="/mostraFotos">Foto</a></li>
+							<li class="current"><a href="/mostraFotos">Foto</a></li>
 							<li><a href="/mostraAlbums">Album</a></li>
 							<li><a href="/mostraFotografi">Fotografi</a></li>
 						</ul></li>
-					<li class="current"><a href="/carrello" title="">Carrello</a></li>	
+					<li><a href="/carrello" title="">Carrello</a></li>	
 					<li><a href="/about" title="">About</a></li>
 					<li><a href="/pannelloDiControllo" title="">Staff</a></li>
 				</ul>
 			</nav>
+			
+			
 			<!-- end main-nav-wrap -->
 
-			<div class="search-wrap">
-
-				<form role="search" method="get" class="search-form" action="#">
-					<label> <span class="hide-content">Search for:</span> <input
-						type="search" class="search-field"
-						placeholder="Type Your Keywords" value="" name="s"
-						title="Search for:" autocomplete="off">
-					</label> <input type="submit" class="search-submit" value="Search">
-				</form>
-
-				<a href="#" id="close-search" class="close-btn">Close</a>
-
-			</div>
-			<!-- end search wrap -->
-
-			<div class="triggers">
-				<a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
-				<a class="menu-toggle" href="#"><span>Menu</span></a>
-			</div>
-			<!-- end triggers -->
 
 		</div>
 
@@ -113,15 +94,16 @@
 		<div class="row masonry">
 
 			<!-- brick-wrapper -->
+			
 			<div class="bricks-wrapper">
 
+		<div th:each="foto : ${fotos}">
 				<div class="grid-sizer"></div>
 
 				<article class="brick entry format-standard animate-this">
-
 					<div class="entry-thumb">
-						<a href="single-standard.html" class="thumb-link"> <img
-							src="images/thumbs/diagonal-building.jpg" alt="building">
+						<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" class="thumb-link" >
+						<img th:src="@{${foto.indirizzo}}" width="1024px" height="1024px" class="center">
 						</a>
 					</div>
 
@@ -129,83 +111,27 @@
 						<div class="entry-header">
 
 							<div class="entry-meta">
-								<span class="cat-links"> <a href="#">Titolo</a> <a
-									href="#">Fotografo</a>
+								<span class="cat-links"> 			
+								<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" th:text="${foto.titolo}" th:if="${utente != 'ADMIN'}"></a>
+								<a th:href="@{'/mostraFotoAdmin' + '/' + ${foto.id}}" th:text="${foto.titolo}" th:if="${utente == 'ADMIN'}"></a>
 								</span>
 							</div>
 						</div>
 					</div>
 				</article>
-								<article class="brick entry format-standard animate-this">
-
-					<div class="entry-thumb">
-						<a href="single-standard.html" class="thumb-link"> <img
-							src="images/thumbs/diagonal-building.jpg" alt="building">
-						</a>
-					</div>
-
-					<div class="entry-text">
-						<div class="entry-header">
-
-							<div class="entry-meta">
-								<span class="cat-links"> <a href="#">Titolo</a> <a
-									href="#">Fotografo</a>
-								</span>
-							</div>
-						</div>
-					</div>
-				</article>
-								<article class="brick entry format-standard animate-this">
-
-					<div class="entry-thumb">
-						<a href="single-standard.html" class="thumb-link"> <img
-							src="images/thumbs/diagonal-building.jpg" alt="building">
-						</a>
-					</div>
-
-					<div class="entry-text">
-						<div class="entry-header">
-
-							<div class="entry-meta">
-								<span class="cat-links"> <a href="#">Titolo</a> <a
-									href="#">Fotografo</a>
-								</span>
-							</div>
-						</div>
-					</div>
-				</article>
-								<article class="brick entry format-standard animate-this">
-
-					<div class="entry-thumb">
-						<a href="single-standard.html" class="thumb-link"> <img
-							src="images/thumbs/diagonal-building.jpg" alt="building">
-						</a>
-					</div>
-
-					<div class="entry-text">
-						<div class="entry-header">
-
-							<div class="entry-meta">
-								<span class="cat-links"> <a href="#">Titolo</a> <a
-									href="#">Fotografo</a>
-								</span>
-							</div>
-						</div>
-					</div>
-				</article>
+				</div>
 			</div>
 		</div>
 	</section>
 	
 	
-<!-- PULSANTE CARRELLO -->
+<!-- PULSANTE TORNA INDIETRO -->
 
-					<form name="cForm" id="cForm" th:action="@{/richiestaForm}" method="post"
-						th:object="${carrello}">
+					<form name="cForm" id="cForm" th:action="@{/categorie}" method="post"
+						th:object="${categorie}">
 						<fieldset>
 
-							<button type="submit"
-								class="submit button-primary full-width-on-mobile">CARRELLO</button>
+							<button type="submit" class="submit button-primary full-width-on-mobile">Indietro</button>
 
 						</fieldset>
 					</form>

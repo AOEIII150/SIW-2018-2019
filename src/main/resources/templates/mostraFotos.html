@@ -68,28 +68,6 @@
 			</nav>
 			
 			
-			<!-- end main-nav-wrap -->
-
-			<div class="search-wrap">
-
-				<form role="search" method="get" class="search-form" action="#">
-					<label> <span class="hide-content">Search for:</span> <input
-						type="search" class="search-field"
-						placeholder="Type Your Keywords" value="" name="s"
-						title="Search for:" autocomplete="off">
-					</label> <input type="submit" class="search-submit" value="Search">
-				</form>
-
-				<a href="#" id="close-search" class="close-btn">Close</a>
-
-			</div>
-			<!-- end search wrap -->
-
-			<div class="triggers">
-				<a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
-				<a class="menu-toggle" href="#"><span>Menu</span></a>
-			</div>
-			<!-- end triggers -->
 
 		</div>
 
@@ -124,18 +102,19 @@
 
 				<article class="brick entry format-standard animate-this">
 					<div class="entry-thumb">
-						<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" class="thumb-link" >
+						<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente != 'ADMIN'}">
+						<img th:src="@{${foto.indirizzo}}" width="1024px" height="1024px" class="center">
+						</a>
+						<a th:href="@{'/mostraFotoA' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente == 'ADMIN'}">
 						<img th:src="@{${foto.indirizzo}}" width="1024px" height="1024px" class="center">
 						</a>
 					</div>
 
 					<div class="entry-text">
 						<div class="entry-header">
-
 							<div class="entry-meta">
 								<span class="cat-links"> 			
-								<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" th:text="${foto.titolo}" th:if="${utente != 'ADMIN'}"></a>
-								<a th:href="@{'/mostraFotoAdmin' + '/' + ${foto.id}}" th:text="${foto.titolo}" th:if="${utente == 'ADMIN'}"></a>
+								<a th:text="${foto.titolo}"></a>
 								</span>
 							</div>
 						</div>
@@ -149,14 +128,9 @@
 	
 <!-- PULSANTE TORNA INDIETRO -->
 
-					<form name="cForm" id="cForm" th:action="@{/categorie}" method="post"
-						th:object="${categorie}">
-						<fieldset>
-
-							<button type="submit" class="submit button-primary full-width-on-mobile">Indietro</button>
-
-						</fieldset>
-					</form>
+	<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
+			<button type="submit" class="submit button-primary full-width-on-mobile" >Indietro</button>
+	</form>
 
 
 <!-- START BOTTOM FOOTER -->

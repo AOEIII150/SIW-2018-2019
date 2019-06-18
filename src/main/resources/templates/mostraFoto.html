@@ -25,6 +25,14 @@
 			<button type="submit" class="half-width">Torna alla home</button>
 		</form>
 		
+		<form name="cForm" id="cForm" method="get" action="/fotoCarrello" th:if="${utente != 'ADMIN'}">
+			<button type="submit" class="half-width">Aggiungi al carrello</button>
+		</form>
+		
+		<form name="cForm" id="cForm" method="get" action="/fotoCarrello" th:if="${x == 'x'}">
+			<button type="submit" class="half-width">XXX</button>
+		</form>
+		
 	</div>
 </body>
 </html>
