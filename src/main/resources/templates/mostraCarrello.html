@@ -102,22 +102,20 @@
 
 				<article class="brick entry format-standard animate-this">
 					<div class="entry-thumb">
-						<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente != 'ADMIN'}">
-						<img th:src="@{${foto.indirizzo}}" width="512px" height="512px" class="center">
-						</a>
-						<a th:href="@{'/mostraFotoA' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente == 'ADMIN'}">
-						<img th:src="@{${foto.indirizzo}}" width="512px" height="512px" class="center">
+						<a th:href="@{'/rimuoviFoto' + '/' + ${foto.id}}" class="thumb-link">
+							<img th:src="@{${foto.indirizzo}}" width="512px" height="512px" class="center">
 						</a>
 					</div>
 				</article>
 				</div>
 			</div>
 			
+			<h5>Cliccare sulla foto per rimuoverla dal carrello</h5>
+			
 			<!-- PULSANTE INOLTRA RICHIESTA -->
 			<article class="brick entry format-standard animate-this">
 				<a th:href="@{/inoltraRichiesta}" th:if="${utente != 'ADMIN'}">
-					<button type="submit" class="half-widht">Inoltra una
-						richiesta</button>
+					<button type="submit" class="half-widht">Inoltra una richiesta</button>
 				</a>
 			</article>
 		</div>
