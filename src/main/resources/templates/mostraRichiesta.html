@@ -80,7 +80,7 @@
 		<div class="row current-cat">
 			<div class="col-full">
 				<h1><font size="30px">Richiesta</font></h1>
-				<h4>inoltrata con successo</h4>
+				<h4><span th:if="${inoltrata == 'TRUE'}">Richiesta inoltrata con successo</span></h4>
 			</div>
 		</div>
 	</section>
@@ -99,10 +99,12 @@
 				<h6><font size="4px" color="gray"><span th:text="'Nome: ' +${richiesta.nome}"></span></font></h6>
 				<h6><font size="4px" color="gray"><span th:text="'Email: ' +${richiesta.email}"></span></font></h6>
 				<h6><font size="4px" color="gray"><span th:text="'Descrizione: ' +${richiesta.descrizione}"></span></font></h6>
+				<h6><font size="4px" color="gray">ID foto:</font></h6>
+				<p class="lead"><span th:each="foto : ${richiesta.fotos}">
+									<span th:text="${foto.id}" style="font-family: "></span>
+				</span></p>
 				
-				
-				
-					<section id="bricks" class="with-top-sep">
+		<section id="bricks" class="with-top-sep">
 
 		<div class="row masonry">
 
@@ -125,16 +127,9 @@
 
 				
 				
-			</div>	
-			
-			
-			
-					
-		</div>	
-		
-	
-		
-	</section>
+	</div>		
+ </div>
+</section>
 
 
 

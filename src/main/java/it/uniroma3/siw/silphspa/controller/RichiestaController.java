@@ -1,5 +1,6 @@
 package it.uniroma3.siw.silphspa.controller;
 
+
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class RichiestaController {
 	@Autowired
 	private RichiestaService richiestaService;
 	
+	
 	@RequestMapping(value="/richiesta",method=RequestMethod.POST)
 	public String nuovaRichiesta(@ModelAttribute("richiesta") Richiesta richiesta, Model model, BindingResult bindingResult) {
 		
@@ -34,9 +36,8 @@ public class RichiestaController {
 			Set<Foto> fotos = Carrello.getCarrello().getFotos();
 			richiesta.setFotos(fotos);
 			this.richiestaService.inserisciRichiesta(richiesta);
-			model.addAttribute("richiesta", richiesta);
 			Carrello.getCarrello().deleteFotos(fotos);
-			return "mostraRichiesta.html";
+			return "redirect:/";
 		}
 		else {
 			model.addAttribute("carrello", Carrello.getCarrello());

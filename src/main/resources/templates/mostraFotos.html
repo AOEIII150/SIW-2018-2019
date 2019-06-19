@@ -82,11 +82,19 @@
 				<h1><font size="30px">Foto</font></h1>
 				<h3><span th:text="${fotografo.nome} + ' ' +${fotografo.cognome}" th:if="${f == 'EXIST'}"></span></h3>
 				
+			        
+				
+				
 			</div>
 		</div>
 	</section>
 	
-	<span style="position: absolute; margin-left:81%; color: #01e300;" th:if="${aggiunto == 'TRUE'}"> Foto aggiunta correttamente </span>
+	
+				<div class="alert-box ss-success hideit" align="left" style="width: 7cm; height: 2cm; position:relative; margin-left: 41.4%"  th:if="${aggiunto == 'TRUE'}">
+		        <p>Foto aggiunta corretamente</p>
+		        <i class="fa fa-times close"></i>
+		      </div><!-- /success -->
+	
 
 
 	<!-- masonry

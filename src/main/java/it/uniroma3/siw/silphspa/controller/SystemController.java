@@ -2,6 +2,7 @@ package it.uniroma3.siw.silphspa.controller;
 
 
 import java.util.List;
+
 import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -50,15 +51,19 @@ public class SystemController {
         indexA++;
         Album a = this.albumService.AlbumPerId(indexA);
         model.addAttribute("album", a);
-        
         List<Foto> fotoA = a.getFoto();
-        Foto fa = fotoA.get(0);
-        model.addAttribute("copertina", fa);
-        
-        
+        if(fotoA.isEmpty()) {
+        	Foto def = new Foto();
+        	def.setIndirizzo("https://bit.ly/2XtMNSv");
+        	model.addAttribute("copertina", def);
+        }
+        else {
+        	Foto fa = fotoA.get(0);
+        	model.addAttribute("copertina", fa);
+        }
+   
         model.addAttribute("fotos", fotos);
         model.addAttribute("fotografi", this.fotografoService.MostraTutti());
-   
 		return "index.html";
 	
 	}

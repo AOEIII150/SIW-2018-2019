@@ -122,9 +122,8 @@
 				
 				<article class="brick entry format-standard animate-this">
 				<a th:href="@{'/fotoCarrello' + '/' + ${foto.id}}" class="thumb-link">
-					<button type="submit" class="half-width" th:if="${utente != 'ADMIN' && aggiunto != 'TRUE'}">Aggiungi al carrello</button>
-				</a> <span th:if="${aggiunto == 'TRUE'}"> &nbsp;&nbsp; Foto aggiunta correttamente </span> 
-				
+					<button type="submit" class="half-width" th:if="${utente != 'ADMIN'}">Aggiungi al carrello</button>
+				</a> 
 				</article>
 					
 				<article class="brick entry format-standard animate-this">
