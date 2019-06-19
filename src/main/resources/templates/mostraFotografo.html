@@ -100,12 +100,12 @@
 
 
 				<article class="brick entry format-standard animate-this">
-				<a href="/mostraAlbumFotografo">
-				<button type="submit" class="half-width">I suoi Album</button>
+				<a th:href="@{'/mostraAlbumFotografo' + '/' + ${fotografo.id}}">
+					<button type="submit" class="half-width">I suoi Album</button>
 				</a> 
 				</article>
 				<article class="brick entry format-standard animate-this">
-				<a href="/mostraFotoFotografo">
+				<a th:href="@{'/mostraFotoFotografo' + '/' + ${fotografo.id}}">
 				<button type="submit" class="half-width">Le sue Foto</button>
 				</a> 
 				</article>

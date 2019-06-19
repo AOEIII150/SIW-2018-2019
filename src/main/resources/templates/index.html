@@ -202,7 +202,7 @@
 	   <div th:each="fotografo : ${fotografi}">
 				<article class="brick entry format-standard animate-this">
 					<div class="entry-thumb">
-						<a href="single-standard.html" class="thumb-link"> <img
+						<a th:href="@{'/fotografo' + '/' + ${fotografo.id}}" class="thumb-link"> <img
 							th:src="@{${fotografo.imgProfilo}}" alt="building">
 						</a>
 					</div>
