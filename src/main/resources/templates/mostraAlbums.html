@@ -89,7 +89,7 @@
 
 	<!-- masonry
    ================================================== -->
-	<section id="bricks" class="with-top-sep">
+	 <section id="bricks" class="with-top-sep">
 
 		<div class="row masonry">
 
@@ -100,38 +100,36 @@
 				<div th:each="album : ${albums}">
 					<div class="grid-sizer"></div>
 
-					<article class="brick entry format-standard animate-this">
-						<div class="entry-thumb">
-
-						</div>
-
-						<div class="entry-text">
-							<div class="entry-header">
-
-								<div class="entry-meta">
-									<span class="cat-links"> 
-										<a
-										th:href="@{'/mostraAlbum' + '/' + ${album.id}}"
-										th:text="${album.titolo} + ' ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}"
-										th:if="${utente != 'ADMIN'}">
-										</a> 
-										<a
-										th:href="@{'/mostraAlbumAdmin' + '/' + ${album.id}}"
-										th:text="${album.titolo} + ' ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}"
-										th:if="${utente == 'ADMIN'}">
-										</a>
-									</span>
-								</div>
-							</div>
-						</div>
-					</article>
+						<h5 class="entry-title"><font size="4px">
+								<a
+									th:href="@{'/mostraAlbum' + '/' + ${album.id}}"
+									th:text="${album.titolo} + ' - ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}"
+									th:if="${utente != 'ADMIN' && f != 'EXIST'}">
+								</a> 
+								<a
+									th:href="@{'/mostraAlbumAdmin' + '/' + ${album.id}}"
+									th:text="${album.titolo} + ' - ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}"
+									th:if="${utente == 'ADMIN' && f != 'EXIST'}">
+								</a>
+								<a
+									th:href="@{'/mostraAlbum' + '/' + ${album.id}}"
+									th:text="${album.titolo}"
+									th:if="${utente != 'ADMIN' && f == 'EXIST'}">
+								</a> 
+								<a
+									th:href="@{'/mostraAlbumAdmin' + '/' + ${album.id}}"
+									th:text="${album.titolo}"
+									th:if="${utente == 'ADMIN' && f == 'EXIST'}">
+								</a>
+						</font></h5>
 				</div>
 			</div>
 		</div>
 	</section>
 
-
 	<!-- PULSANTE TORNA INDIETRO -->
+	
+	
 
 	
 	<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">

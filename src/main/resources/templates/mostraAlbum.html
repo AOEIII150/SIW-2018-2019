@@ -97,9 +97,10 @@
 
 				<a th:href="@{/cercaAlbum}" th:if="${utente == 'ADMIN'}">
 					<button type="submit" class="half-width">Nuova ricerca</button>
+					
 				</a> <a th:href="@{/pannelloDiControllo}" th:if="${utente == 'ADMIN'}">
-					<button type="submit" class="half-width">Torna all'area
-						staff</button>
+					<button type="submit" class="half-width">Torna all'area staff</button>
+						
 				</a> <a th:href="@{/}" th:if="${utente != 'ADMIN'}">
 					<button type="submit" class="half-width">Torna alla home</button>
 				</a>
