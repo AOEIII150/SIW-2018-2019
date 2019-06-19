@@ -111,12 +111,12 @@
 					<div class="entry-text">
 						<div class="entry-header">
 
-							<div class="entry-meta">
+							<div class="entry-excerpt">
 								<span class="cat-links"> 			
-								<a th:href="@{'/fotografo' + '/' + ${fotografo.id}}" th:text="${fotografo.nome} + ' ' +${fotografo.cognome}" th:if="${utente != 'ADMIN'}"></a>
-								<a th:href="@{'/fotografoAdmin' + '/' + ${fotografo.id}}" th:text="${fotografo.nome} + ' ' +${fotografo.cognome}" th:if="${utente == 'ADMIN'}"></a>
+									<font size="4px" style="color:black;"><span th:text="${fotografo.nome} + ' ' +${fotografo.cognome}" th:if="${utente != 'ADMIN'}"></span></font>
 								</span>
 							</div>
+						
 						</div>
 					</div>
 				</article>
@@ -128,7 +128,7 @@
 	
 	<!-- PULSANTE INDIETRO -->
 	<article class="brick entry format-standard animate-this">
-	<div class="row">
+	<div class="row" align="middle">
 		<form name="cForm" id="cForm" th:action="@{/}" method="post"
 			th:object="${home}">
 			<button type="submit" class="half-widht">Indietro</button>

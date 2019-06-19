@@ -1185,7 +1185,7 @@ input::-moz-focus-inner {
 }
 
 .bricks-wrapper .entry-text {
-	padding: 1.8rem 2.8rem 3.6rem;
+	padding: 1.8rem 2.8rem 1.8rem;
 	background-color: white;
 }
 
@@ -1219,7 +1219,7 @@ input::-moz-focus-inner {
 
 .bricks-wrapper .entry-excerpt {
 	font-size: 1.5rem;
-	line-height: 2.7rem;
+	line-height: 2rem;
 	color: #999999;
 }
 

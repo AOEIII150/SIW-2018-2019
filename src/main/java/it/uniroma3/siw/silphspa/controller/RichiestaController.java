@@ -27,7 +27,7 @@ public class RichiestaController {
 	private RichiestaService richiestaService;
 	
 	@RequestMapping(value="/richiesta",method=RequestMethod.POST)
-	public String fotoNelCarrello(@ModelAttribute("richiesta") Richiesta richiesta, Model model, BindingResult bindingResult) {
+	public String nuovaRichiesta(@ModelAttribute("richiesta") Richiesta richiesta, Model model, BindingResult bindingResult) {
 		
 		this.richiestaValidator.validate(richiesta,bindingResult);
 		if(!bindingResult.hasErrors()) {
