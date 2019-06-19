@@ -84,42 +84,42 @@
 			<div class="col-twelve">
 
 				<section>
-					<article class="brick entry format-standard animate-this">
 					<div class="content-media">
 						<div class="primary-content" style="text-align: center;">
+						<article class="brick entry format-standard animate-this">
 							<h1 class="entry-title add-bottom">
 								<span th:text="${fotografo.nome} + ' ' +${fotografo.cognome}"></span>
 							</h1>
+						</article>
 						</div>
+						<article class="brick entry format-standard animate-this" align="middle">
 						<img th:src="@{${fotografo.imgProfilo}}" width="256px" height="256px">
+						</article>
 					</div>
-					</article>
-
-
 				</section>
 
 
-				<article class="brick entry format-standard animate-this">
+				<article class="brick entry format-standard animate-this" align="middle">
 				<a th:href="@{'/mostraAlbumFotografo' + '/' + ${fotografo.id}}">
 					<button type="submit" class="half-width">I suoi Album</button>
 				</a> 
 				</article>
-				<article class="brick entry format-standard animate-this">
+				<article class="brick entry format-standard animate-this" align="middle">
 				<a th:href="@{'/mostraFotoFotografo' + '/' + ${fotografo.id}}">
 				<button type="submit" class="half-width">Le sue Foto</button>
 				</a> 
 				</article>
-				<article class="brick entry format-standard animate-this">
+				<article class="brick entry format-standard animate-this" align="middle">
 				<a href="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
 				<button type="submit" class="half-width">Torna all'area staff</button>
 				</a> 
 				</article>
-				<article class="brick entry format-standard animate-this">
+				<article class="brick entry format-standard animate-this" align="middle">
 				<a href="/" th:if="${utente != 'ADMIN'}">
 				<button type="submit" class="half-width">Torna alla home</button>
 				</a> 
 				</article>
-				<article class="brick entry format-standard animate-this">
+				<article class="brick entry format-standard animate-this" align="middle">
 				<a href="/cercaFotografo" th:if="${utente == 'ADMIN'}">
 				<button type="submit" class="half-width">Nuova ricerca</button>
 				</a>
