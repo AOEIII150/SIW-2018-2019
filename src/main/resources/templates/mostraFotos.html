@@ -81,9 +81,12 @@
 			<div class="col-full">
 				<h1><font size="30px">Foto</font></h1>
 				<h3><span th:text="${fotografo.nome} + ' ' +${fotografo.cognome}" th:if="${f == 'EXIST'}"></span></h3>
+				
 			</div>
 		</div>
 	</section>
+	
+	<span style="position: absolute; margin-left:81%; color: #01e300;" th:if="${aggiunto == 'TRUE'}"> Foto aggiunta correttamente </span>
 
 
 	<!-- masonry
