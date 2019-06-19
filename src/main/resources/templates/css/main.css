@@ -1095,7 +1095,7 @@ input::-moz-focus-inner {
 
 .bricks-wrapper .entry-thumb,
 .bricks-wrapper .entry-text {
-	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 2px 3px rgba(255,255,255,0.5);
 }
 
 .bricks-wrapper .entry-thumb {

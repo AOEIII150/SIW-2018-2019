@@ -1095,7 +1095,7 @@ input::-moz-focus-inner {
 
 .bricks-wrapper .entry-thumb,
 .bricks-wrapper .entry-text {
-	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 2px 3px rgba(255,255,255,0.5);
 }
 
 .bricks-wrapper .entry-thumb {
@@ -1115,7 +1115,7 @@ input::-moz-focus-inner {
 .bricks-wrapper .entry-thumb .thumb-link::before {
 	content: "";
 	display: block;
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(255,255,255,0.35);
 	opacity: 0;
 	visibility: hidden;
 	position: absolute;
@@ -1689,9 +1689,9 @@ header .logo a {
 #main-nav-wrap {
 	display: table;
 	float: right;
-	padding-right: 85px;
+	padding-right: 100px;
 	font-family: "montserrat-regular", sans-serif;
-	font-size: 15px;
+	font-size: 20px;
 	height: 78px;
 }
 
@@ -1773,7 +1773,7 @@ header .logo a {
 	white-space: nowrap;
 	padding: 16.5px 25px;
 	font-family: "muli-regular", sans-serif;
-	font-size: 14px;
+	font-size: 18px;
 	line-height: 15px;
 	display: block;
 	color: #8E8E8E;
