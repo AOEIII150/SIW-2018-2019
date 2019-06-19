@@ -2,7 +2,8 @@
 <!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html class="no-js" lang="en" xmlns:th= "http://www.thymeleaf.org" xmlns="htttp://www.w3.org/1999/html">
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns="htttp://www.w3.org/1999/html">
 <!--<![endif]-->
 <head>
 
@@ -59,14 +60,15 @@
 							<li><a href="/mostraFotos">Foto</a></li>
 							<li><a href="/mostraAlbums">Album</a></li>
 							<li><a href="/mostraFotografi">Fotografi</a></li>
-						</ul></li>
-					<li class="current"><a href="/mostraCarrello">Carrello</a></li>	
+						</ul>
+					</li>
+					<li class="current"><a href="/mostraCarrello">Carrello</a></li>
 					<li><a href="/about" title="">About</a></li>
 					<li><a href="/pannelloDiControllo" title="">Staff</a></li>
 				</ul>
 			</nav>
-			
-			
+
+
 
 		</div>
 
@@ -92,46 +94,55 @@
 		<div class="row masonry">
 
 			<!-- brick-wrapper -->
-			
-			<div class="bricks-wrapper">
 
-		<div th:each="foto : ${carrello.fotos}">
-				<div class="grid-sizer"></div>
+			<div class="bricks-carrello">
 
-				<article class="brick entry format-standard animate-this">
-					<div class="entry-thumb">
-						<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente != 'ADMIN'}">
-						<img th:src="@{${foto.indirizzo}}" width="1024px" height="1024px" class="center">
-						</a>
-						<a th:href="@{'/mostraFotoA' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente == 'ADMIN'}">
-						<img th:src="@{${foto.indirizzo}}" width="1024px" height="1024px" class="center">
-						</a>
-					</div>
+				<div th:each="foto : ${carrello.fotos}">
+					<div class="grid-sizer"></div>
 
-					<div class="entry-text">
-						<div class="entry-header">
-							<div class="entry-meta">
-								<span class="cat-links"> 			
-								<a th:text="${foto.titolo}"></a>
-								</span>
+					<article class="brick entry format-standard animate-this">
+						<div class="entry-thumb">
+							<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}"
+								class="thumb-link" th:if="${utente != 'ADMIN'}"> <img
+								th:src="@{${foto.indirizzo}}" width="512px" height="512px"
+								class="center">
+							</a> 
+							
+							<a th:href="@{'/mostraFotoA' + '/' + ${foto.id}}"
+								class="thumb-link" th:if="${utente == 'ADMIN'}"> <img
+								th:src="@{${foto.indirizzo}}" width="512px" height="512px"
+								class="center">
+							</a>
+						</div>
+
+						<div class="entry-text">
+							<div class="entry-header">
+							<article class="brick entry format-standard animate-this">
+								<div class="entry-meta">
+									<span class="cat-links"> <a th:text="${foto.titolo}"></a>
+									</span>
+								</div>
+								</article>
 							</div>
 						</div>
-					</div>
-				</article>
+					</article>
+
+
 				</div>
+
 			</div>
+			<!-- PULSANTE TORNA INDIETRO -->
+			<article class="brick entry format-standard animate-this">
+				<a th:href="@{/inoltraRichiesta}" th:if="${utente != 'ADMIN'}">
+					<button type="submit" class="half-widht">Inoltra una
+						richiesta</button>
+				</a>
+			</article>
 		</div>
 	</section>
-	
-	
-<!-- PULSANTE TORNA INDIETRO -->
 
-	<form name="cForm" id="cForm" method="get" action="/inoltraRichiesta" th:if="${utente != 'ADMIN'}">
-			<button type="submit" class="submit button-primary full-width-on-mobile" >Inoltra una richiesta</button>
-	</form>
-
-<!-- START BOTTOM FOOTER -->
-<footer>
+	<!-- START BOTTOM FOOTER -->
+	<footer>
 		<div class="footer-bottom">
 			<div class="row">
 

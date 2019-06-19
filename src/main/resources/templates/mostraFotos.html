@@ -101,10 +101,10 @@
 				<article class="brick entry format-standard animate-this">
 					<div class="entry-thumb">
 						<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente != 'ADMIN'}">
-						<img th:src="@{${foto.indirizzo}}" width="1024px" height="512px" class="center">
+						<img th:src="@{${foto.indirizzo}}" width="512px" height="512px" class="center">
 						</a>
 						<a th:href="@{'/mostraFotoA' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente == 'ADMIN'}">
-						<img th:src="@{${foto.indirizzo}}" width="1024px" height="512px" class="center">
+						<img th:src="@{${foto.indirizzo}}" width="512px" height="512px" class="center">
 						</a>
 					</div>
 

@@ -1179,6 +1179,11 @@ input::-moz-focus-inner {
 	transform: scale(1.05);
 }
 
+.bricks-carrello .entry-text {
+	padding: 0rem 0rem 0rem;
+	background-color: white;
+}
+
 .bricks-wrapper .entry-text {
 	padding: 1.8rem 2.8rem 3.6rem;
 	background-color: white;
