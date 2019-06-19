@@ -85,40 +85,53 @@
 				<section>
 
 					<div class="content-media">
-						<div class="primary-content">
+						<div class="primary-content" style="text-align: center;">
+						<article class="brick entry format-standard animate-this">
 							<h1 class="entry-title add-bottom">
 								<span th:text="${foto.titolo}"> </span>
 							</h1>
+							</article>
+							
 						</div>
+						<article class="brick entry format-standard animate-this">
 						<img th:src="@{${foto.indirizzo}}" width="2048px" height="2048px">
+						</article>
 					</div>
 
 
 				</section>
 
 
-
+<article class="brick entry format-standard animate-this">
 				<a href="/cercaFoto" th:if="${utente == 'ADMIN'}">
 					<button type="submit" class="half-width">Nuova ricerca</button>
 				</a> 
+				</article>
 				
+				<article class="brick entry format-standard animate-this">
 				<a href="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
 					<button type="submit" class="half-width">Torna all'area
 						staff</button>
 				</a> 
+				</article>
 				
+				<article class="brick entry format-standard animate-this">
 				<a href="/" th:if="${utente != 'ADMIN'}">
 					<button type="submit" class="half-width">Torna alla home</button>
 				</a> 
+				</article>
 				
+				<article class="brick entry format-standard animate-this">
 				<a th:href="@{'/fotoCarrello' + '/' + ${foto.id}}" class="thumb-link">
 					<button type="submit" class="half-width" th:if="${utente != 'ADMIN' && aggiunto != 'TRUE'}">Aggiungi al carrello</button>
 				</a> <span th:if="${aggiunto == 'TRUE'}"> &nbsp;&nbsp; Foto aggiunta correttamente </span> 
+					</article>
 					
-					
+				<article class="brick entry format-standard animate-this">
 				<a th:href="@{/mostraFotos}" class="thumb-link">
 					<button type="submit" class="half-width" th:if="${utente != 'ADMIN' && aggiunto == 'TRUE'}">Aggiungi un'altra foto</button>
 				</a>
+				</article>
 
 
 
