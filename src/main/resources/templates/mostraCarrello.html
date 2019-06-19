@@ -94,33 +94,26 @@
 		<div class="row masonry">
 
 			<!-- brick-wrapper -->
+			
+			<div class="bricks-wrapper">
 
-			<div class="bricks-carrello">
+		<div th:each="foto : ${carrello.fotos}">
+				<div class="grid-sizer"></div>
 
-				<div th:each="foto : ${carrello.fotos}">
-					<div class="grid-sizer"></div>
-
-					<article class="brick entry format-standard animate-this">
-						<div class="entry-thumb">
-							<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}"
-								class="thumb-link" th:if="${utente != 'ADMIN'}"> <img
-								th:src="@{${foto.indirizzo}}" width="512px" height="512px"
-								class="center">
-							</a> 
-							
-							<a th:href="@{'/mostraFotoA' + '/' + ${foto.id}}"
-								class="thumb-link" th:if="${utente == 'ADMIN'}"> <img
-								th:src="@{${foto.indirizzo}}" width="512px" height="512px"
-								class="center">
-							</a>
-						</div>
-					</article>
-
-
+				<article class="brick entry format-standard animate-this">
+					<div class="entry-thumb">
+						<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente != 'ADMIN'}">
+						<img th:src="@{${foto.indirizzo}}" width="512px" height="512px" class="center">
+						</a>
+						<a th:href="@{'/mostraFotoA' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente == 'ADMIN'}">
+						<img th:src="@{${foto.indirizzo}}" width="512px" height="512px" class="center">
+						</a>
+					</div>
+				</article>
 				</div>
-
 			</div>
-			<!-- PULSANTE TORNA INDIETRO -->
+			
+			<!-- PULSANTE INOLTRA RICHIESTA -->
 			<article class="brick entry format-standard animate-this">
 				<a th:href="@{/inoltraRichiesta}" th:if="${utente != 'ADMIN'}">
 					<button type="submit" class="half-widht">Inoltra una
