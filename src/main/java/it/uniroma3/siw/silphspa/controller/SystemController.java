@@ -35,6 +35,7 @@ public class SystemController {
 		Random random = new Random();
         int index = random.nextInt(fotos.size());
         index++;
+        System.out.println("XXXXX = " +index);
 		Foto f = this.fotoService.findById(index);
 		model.addAttribute("foto", f);
 		
