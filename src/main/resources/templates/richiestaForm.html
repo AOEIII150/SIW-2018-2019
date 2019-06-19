@@ -100,9 +100,9 @@
 							<div>Descrizione utilizzo fotografie:</div>
 							<input type="text" th:field="*{descrizione}" class="half-width"/>
 							<div th:each="foto : ${carrello.fotos}">
-								<a th:text="${foto.titolo}"></a>
+								<img th:src="${foto.indirizzo}" width="128px" height="128px"></img>
 							</div>
-							<button type="submit" class="submit button-primary full-width-on-mobile">INVIA</button>
+							<button type="submit" class="half-widht">INVIA</button>
 
 						</fieldset>
 					</form>
@@ -121,8 +121,7 @@
    ================================================== -->
 	<script src="js/jquery-2.1.3.min.js"></script>
 	<script src="js/plugins.js"></script>
-	<script
-		src="http://maps.google.com/maps/api/js?v=3.13&amp;sensor=false"></script>
+	<script src="http://maps.google.com/maps/api/js?v=3.13&amp;sensor=false"></script>
 	<script src="js/main.js"></script>
 
 </body>
