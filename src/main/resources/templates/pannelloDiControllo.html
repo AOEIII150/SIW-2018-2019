@@ -82,9 +82,8 @@
 
 					<h1 class="entry-title add-bottom">SILPH staff</h1>
 					<h4>
-						<span th:text="Bentornato + ' ' +${utente.username}"></span>
+						<span th:text="Bentornato + ' ' +${username}"></span>
 					</h4>
-					<h4 class="">Operazioni:</h4>
 
 					<div class="row">
 						<div class="col-six tab-full"></div>
@@ -95,8 +94,7 @@
 
 					<article class="brick entry format-standard animate-this">
 						<form name="cForm" id="cForm" method="get" action="/addFotografo">
-							<button type="submit" class="half-width">Aggiungi
-								fotografo</button>
+							<button type="submit" class="half-width">Aggiungi fotografo</button>
 						</form>
 					</article>
 

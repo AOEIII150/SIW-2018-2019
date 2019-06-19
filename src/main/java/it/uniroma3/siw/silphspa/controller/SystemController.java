@@ -1,34 +1,25 @@
 package it.uniroma3.siw.silphspa.controller;
 
 
-
-
 import java.util.List;
 import java.util.Random;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import it.uniroma3.siw.silphspa.model.Album;
 import it.uniroma3.siw.silphspa.model.Foto;
 import it.uniroma3.siw.silphspa.model.Fotografo;
-import it.uniroma3.siw.silphspa.model.SilphStaff;
 import it.uniroma3.siw.silphspa.services.AlbumService;
 import it.uniroma3.siw.silphspa.services.FotoService;
 import it.uniroma3.siw.silphspa.services.FotografoService;
-import it.uniroma3.siw.silphspa.services.SilphStaffService;
+
 
 @Controller
 public class SystemController {
 	
-	@Autowired
-	private SilphStaffService staffService;
-
 	@Autowired
 	private FotoService fotoService;
 	
@@ -87,8 +78,8 @@ public class SystemController {
 	public String pannelloDiControllo(Model model) {
 		UserDetails staff = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username = staff.getUsername();
-		SilphStaff utente = this.staffService.findByUsername(username);
-		model.addAttribute("utente", utente);
+		username = username.substring(0, 1).toUpperCase() + username.substring(1).toLowerCase();
+		model.addAttribute("username", username);
 		return "pannelloDiControllo.html";
 	}
 	

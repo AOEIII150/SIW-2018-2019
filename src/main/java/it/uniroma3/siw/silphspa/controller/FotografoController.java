@@ -56,32 +56,50 @@ public class FotografoController {
 	public String trovaFotografo(@ModelAttribute("stringRicerca") StringRicerca stringRicerca, Model model, BindingResult bindingResult) {
 		
 		
-		if(!stringRicerca.getS1().equals("") && !stringRicerca.getS2().equals("") && stringRicerca.getS3().equals("")) {
+		if(!stringRicerca.getS1().equals("") && !stringRicerca.getS2().equals("") && stringRicerca.getS3().equals("")) {			
 			String nome = stringRicerca.getS1().substring(0, 1).toUpperCase() + stringRicerca.getS1().substring(1).toLowerCase();
 			String cognome = stringRicerca.getS2().substring(0, 1).toUpperCase() + stringRicerca.getS2().substring(1).toLowerCase();
 			List<Fotografo> f = this.fotografoService.findByNomeAndCognome(nome,cognome);
-			model.addAttribute("fotografi", f);
-			model.addAttribute("utente","ADMIN");
-			model.addAttribute("stringRicerca", stringRicerca);
-			return "mostraFotografi.html";
-		}
-		else {
-			if(!stringRicerca.getS1().equals("") && stringRicerca.getS2().equals("") && stringRicerca.getS3().equals("")) {
-				String nome = stringRicerca.getS1().substring(0, 1).toUpperCase() + stringRicerca.getS1().substring(1).toLowerCase();
-				List<Fotografo> f = this.fotografoService.findByNome(nome);
+			if(f.isEmpty()) {
+				bindingResult.rejectValue("s3", "notFound");
+				return "ricercaFotografo.html";
+			}
+			else {
 				model.addAttribute("fotografi", f);
 				model.addAttribute("utente","ADMIN");
 				model.addAttribute("stringRicerca", stringRicerca);
 				return "mostraFotografi.html";
 			}
-			else {
-				if(stringRicerca.getS1().equals("") && !stringRicerca.getS2().equals("") && stringRicerca.getS3().equals("")) {
-					String cognome = stringRicerca.getS2().substring(0, 1).toUpperCase() + stringRicerca.getS2().substring(1).toLowerCase();
-					List<Fotografo> f = this.fotografoService.findByCognome(cognome);
+		}
+		else {
+			if(!stringRicerca.getS1().equals("") && stringRicerca.getS2().equals("") && stringRicerca.getS3().equals("")) {
+				String nome = stringRicerca.getS1().substring(0, 1).toUpperCase() + stringRicerca.getS1().substring(1).toLowerCase();
+				List<Fotografo> f = this.fotografoService.findByNome(nome);
+				if(f.isEmpty()) {
+					bindingResult.rejectValue("s3", "notFound");
+					return "ricercaFotografo.html";
+				}
+				else {
 					model.addAttribute("fotografi", f);
 					model.addAttribute("utente","ADMIN");
 					model.addAttribute("stringRicerca", stringRicerca);
 					return "mostraFotografi.html";
+				}
+			}
+			else {
+				if(stringRicerca.getS1().equals("") && !stringRicerca.getS2().equals("") && stringRicerca.getS3().equals("")) {
+					String cognome = stringRicerca.getS2().substring(0, 1).toUpperCase() + stringRicerca.getS2().substring(1).toLowerCase();
+					List<Fotografo> f = this.fotografoService.findByCognome(cognome);
+					if(f.isEmpty()) {
+						bindingResult.rejectValue("s3", "notFound");
+						return "ricercaFotografo.html";
+					}
+					else {
+						model.addAttribute("fotografi", f);
+						model.addAttribute("utente","ADMIN");
+						model.addAttribute("stringRicerca", stringRicerca);
+						return "mostraFotografi.html";
+					}
 				}
 				else {
 					if((stringRicerca.getS1().equals("") && stringRicerca.getS2().equals("") && !stringRicerca.getS3().equals("")) ||

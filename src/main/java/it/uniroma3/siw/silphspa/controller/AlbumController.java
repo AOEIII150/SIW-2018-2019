@@ -81,9 +81,16 @@ import it.uniroma3.siw.silphspa.services.FotografoService;
 				if(!stringRicerca.getS1().equals("") && stringRicerca.getS2().equals("")) {
 					String nome = stringRicerca.getS1().substring(0, 1).toUpperCase() + stringRicerca.getS1().substring(1).toLowerCase();
 					List<Album> a = this.albumService.findByNome(nome);
-					model.addAttribute("albums", a);
-					model.addAttribute("utente","ADMIN");
-					return "mostraAlbums.html";
+					if(a.isEmpty()) {
+						bindingResult.rejectValue("s3", "albumNotFound");
+						return "ricercaAlbum.html";
+					}
+					else {
+						model.addAttribute("albums", a);
+						model.addAttribute("utente","ADMIN");
+						return "mostraAlbums.html";
+					}
+					
 				}
 				else {
 						Long id = Long.valueOf(stringRicerca.getS2()).longValue();

@@ -96,9 +96,16 @@ public class FotoController {
 			if(!stringRicerca.getS1().equals("") && stringRicerca.getS2().equals("")) {
 				String titolo = stringRicerca.getS1().substring(0, 1).toUpperCase() + stringRicerca.getS1().substring(1).toLowerCase();
 				List<Foto> f = this.fotoService.findByTitolo(titolo);
-				model.addAttribute("fotos", f);
-				model.addAttribute("utente","ADMIN");
-				return "mostraFotos.html";
+				if(f.isEmpty()) {
+					bindingResult.rejectValue("s3", "fotoNotFound");
+					return "ricercaFoto.html";
+				}
+				else {
+					model.addAttribute("fotos", f);
+					model.addAttribute("utente","ADMIN");
+					return "mostraFotos.html";
+				}
+				
 			}
 			else {
 					Long id = Long.valueOf(stringRicerca.getS2()).longValue();
