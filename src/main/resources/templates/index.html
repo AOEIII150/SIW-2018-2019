@@ -171,8 +171,8 @@
    <div th:each="foto : ${fotos}">
 				<article class="brick entry format-standard animate-this">
 					<div class="entry-thumb">
-						<a href="single-standard.html" class="thumb-link"> <img
-							th:src="@{${foto.indirizzo}}" alt="building">
+						<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" class="thumb-link">
+							<img th:src="@{${foto.indirizzo}}" alt="building">
 						</a>
 					</div>
 
