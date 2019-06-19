@@ -1595,10 +1595,10 @@ header .logo a {
 	padding: 0;
 	outline: 0;
 	border: none;
-	width: 60px;
-	height: 60px;
+	width: 80px;
+	height: 80px;
 	background: url("../images/logo.png") no-repeat center;
-	background-size: 60px 60px;
+	background-size: 80px 80px;
 	font: 0/0 a;
 	text-shadow: none;
 	color: transparent;
