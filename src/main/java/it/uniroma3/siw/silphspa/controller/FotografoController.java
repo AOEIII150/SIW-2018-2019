@@ -127,7 +127,7 @@ public class FotografoController {
 	
 	@RequestMapping(value="/fotografo/{id}", method=RequestMethod.GET)
 	public String fotografo(@PathVariable("id") Long id,Model model) {
-		Fotografo f = this.fotografoService.fotografoPerId(id);
+		Fotografo f = this.fotografoService.fotografoPerId(id);		
 		if(f == null) {
 			return "/mostraFotografi";
 		}

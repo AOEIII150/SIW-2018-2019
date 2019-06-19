@@ -24,7 +24,7 @@ public class AlbumService {
 		    return (List<Album>)albumRepository.findAll();
 	}
 	
-	public Album AlbumPerId(Long id) {
+	public Album AlbumPerId(long id) {
 		try {return albumRepository.findById(id).get();}
 		catch(NoSuchElementException e) {return null;}
 	}

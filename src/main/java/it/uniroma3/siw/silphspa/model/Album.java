@@ -14,10 +14,12 @@ import javax.persistence.OneToMany;
 public class Album {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String titolo;
+	
+	//private Foto copertina;
 	
 	
 	@OneToMany(mappedBy = "album")
@@ -51,5 +53,11 @@ public class Album {
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
 	}
+	/*public Foto getCopertina() {
+		return copertina;
+	}
+	public void setCopertina(Foto copertina) {
+		this.copertina = copertina;
+	}*/
 
 }

@@ -14,10 +14,13 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import it.uniroma3.siw.silphspa.model.Album;
 import it.uniroma3.siw.silphspa.model.Foto;
 import it.uniroma3.siw.silphspa.model.Fotografo;
 import it.uniroma3.siw.silphspa.model.SilphStaff;
+import it.uniroma3.siw.silphspa.services.AlbumService;
 import it.uniroma3.siw.silphspa.services.FotoService;
+import it.uniroma3.siw.silphspa.services.FotografoService;
 import it.uniroma3.siw.silphspa.services.SilphStaffService;
 
 @Controller
@@ -28,6 +31,12 @@ public class SystemController {
 
 	@Autowired
 	private FotoService fotoService;
+	
+	@Autowired
+	private AlbumService albumService;
+	
+	@Autowired
+	private FotografoService fotografoService;
 	
 	//HOME
 	@RequestMapping(value = "/")
@@ -42,6 +51,20 @@ public class SystemController {
 		Fotografo fotografo = f.getFotografo();
 		model.addAttribute("fotografo", fotografo);
 		
+		List<Album> albums = this.albumService.MostraTutti();
+        int indexA = random.nextInt(albums.size());
+        indexA++;
+        Album a = this.albumService.AlbumPerId(indexA);
+        model.addAttribute("album", a);
+        
+        List<Foto> fotoA = a.getFoto();
+        Foto fa = fotoA.get(0);
+        model.addAttribute("copertina", fa);
+        
+        
+        model.addAttribute("fotos", fotos);
+        model.addAttribute("fotografi", this.fotografoService.MostraTutti());
+   
 		return "index.html";
 	
 	}

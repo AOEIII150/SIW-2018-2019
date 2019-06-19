@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class SilphStaff {
 	
 	@Id
-	@GeneratedValue( strategy = GenerationType.AUTO)
+	@GeneratedValue( strategy = GenerationType.IDENTITY)
 	@Column(name = "id", columnDefinition = "serial", nullable = false)
 	private Long id;
 	//Dati di login per lo staff SILPH
