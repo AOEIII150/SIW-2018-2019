@@ -79,7 +79,7 @@
 	<section id="page-header">
 		<div class="row current-cat">
 			<div class="col-full">
-				<h1><font size="30px">Fotografi</h1>
+				<h1><font size="30px">Fotografi</font></h1>
 				<h4> Tutti i fotografi registrati</h4>
 			</div>
 		</div>
@@ -101,9 +101,11 @@
 
 				<article class="brick entry format-standard animate-this">
 					<div class="entry-thumb">
-						<a th:href="@{'/fotografo' + '/' + ${fotografo.id}}" class="thumb-link" >
-						 
-						<img th:src="@{${fotografo.imgProfilo}}" width="512px" height="512px" class="center" >
+						<a th:href="@{'/fotografo' + '/' + ${fotografo.id}}" class="thumb-link" th:if="${utente != 'ADMIN'}">
+							<img th:src="@{${fotografo.imgProfilo}}" width="512px" height="512px" class="center" >
+						</a>
+						<a th:href="@{'/fotografoAdmin' + '/' + ${fotografo.id}}" class="thumb-link" th:if="${utente == 'ADMIN'}">
+							<img th:src="@{${fotografo.imgProfilo}}" width="512px" height="512px" class="center" >
 						</a>
 					</div>
 
