@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import it.uniroma3.siw.silphspa.model.Album;
+import it.uniroma3.siw.silphspa.model.Foto;
 import it.uniroma3.siw.silphspa.model.Fotografo;
 import it.uniroma3.siw.silphspa.model.StringRicerca;
 import it.uniroma3.siw.silphspa.services.FotografoService;
@@ -168,5 +170,25 @@ public class FotografoController {
 			model.addAttribute("fotografo", f);
 			return "mostraFotografo.html";
 		}
+	}
+	
+	@RequestMapping(value="/mostraAlbumFotografo/{id}", method=RequestMethod.GET)
+	public String fotografoAlbums(@PathVariable("id") Long id, Model model) {
+		Fotografo f = this.fotografoService.fotografoPerId(id);
+		List<Album> albums = f.getAlbum();
+		model.addAttribute("albums", albums);
+		model.addAttribute("fotografo", f);
+		model.addAttribute("f", "EXIST");
+		return "mostraAlbums.html";
+	}
+	
+	@RequestMapping(value="/mostraFotoFotografo/{id}", method=RequestMethod.GET)
+	public String fotografoFotos(@PathVariable("id") Long id, Model model) {
+		Fotografo f = this.fotografoService.fotografoPerId(id);
+		List<Foto> fotos = f.getFoto();
+		model.addAttribute("fotos", fotos);
+		model.addAttribute("fotografo", f);
+		model.addAttribute("f", "EXIST");
+		return "mostraFotos.html";
 	}
 }

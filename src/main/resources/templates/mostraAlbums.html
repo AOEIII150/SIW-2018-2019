@@ -21,15 +21,15 @@
 
 <!-- CSS
    ================================================== -->
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/vendor.css">
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/vendor.css">
+<link rel="stylesheet" href="../css/main.css">
 
 
 <!-- script
    ================================================== -->
-<script src="js/modernizr.js"></script>
-<script src="js/pace.min.js"></script>
+<script src="../js/modernizr.js"></script>
+<script src="../js/pace.min.js"></script>
 
 <!-- favicons
 	================================================== -->
@@ -81,6 +81,7 @@
 		<div class="row current-cat">
 			<div class="col-full">
 				<h1><font size="30px">Album</font></h1>
+				<h3><span th:text="${fotografo.nome} + ' ' +${fotografo.cognome}" th:if="${f == 'EXIST'}"></span></h3>
 			</div>
 		</div>
 	</section>
@@ -108,13 +109,17 @@
 							<div class="entry-header">
 
 								<div class="entry-meta">
-									<span class="cat-links"> <a
+									<span class="cat-links"> 
+										<a
 										th:href="@{'/mostraAlbum' + '/' + ${album.id}}"
 										th:text="${album.titolo} + ' ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}"
-										th:if="${utente != 'ADMIN'}"></a> <a
+										th:if="${utente != 'ADMIN'}">
+										</a> 
+										<a
 										th:href="@{'/mostraAlbumAdmin' + '/' + ${album.id}}"
 										th:text="${album.titolo} + ' ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}"
-										th:if="${utente == 'ADMIN'}"></a>
+										th:if="${utente == 'ADMIN'}">
+										</a>
 									</span>
 								</div>
 							</div>
@@ -163,9 +168,9 @@
 
 	<!-- Java Script
    ================================================== -->
-	<script src="js/jquery-2.1.3.min.js"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
+	<script src="../js/jquery-2.1.3.min.js"></script>
+	<script src="../js/plugins.js"></script>
+	<script src="../js/main.js"></script>
 
 </body>
 

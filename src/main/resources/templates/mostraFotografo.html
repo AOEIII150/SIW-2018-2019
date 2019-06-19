@@ -98,11 +98,12 @@
 
 
 
-				<a href="/mostraAlbumFotografo">
+				<a th:href="@{'/mostraAlbumFotografo' + '/' + ${fotografo.id}}">
 					<button type="submit" class="half-width">I suoi Album</button>
 				</a> 
 				
-				<a href="/mostraFotoFotografo">
+				
+				<a th:href="@{'/mostraFotoFotografo' + '/' + ${fotografo.id}}">
 					<button type="submit" class="half-width">Le sue Foto</button>
 				</a> 
 				
