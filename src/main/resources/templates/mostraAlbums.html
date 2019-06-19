@@ -100,11 +100,13 @@
 				<div th:each="album : ${albums}">
 					<div class="grid-sizer"></div>
 
+<article class="brick entry format-standard animate-this" align="middle">
 						<h5 class="entry-title"><font size="4px">
+						
 								<a
 									th:href="@{'/mostraAlbum' + '/' + ${album.id}}"
 									th:text="${album.titolo} + ' - ' +${album.fotografo.nome} + ' ' +${album.fotografo.cognome}"
-									th:if="${utente != 'ADMIN' && f != 'EXIST'}">
+									th:if="${utente != 'ADMIN' && f != 'EXIST'}" >
 								</a> 
 								<a
 									th:href="@{'/mostraAlbumAdmin' + '/' + ${album.id}}"
@@ -122,19 +124,11 @@
 									th:if="${utente == 'ADMIN' && f == 'EXIST'}">
 								</a>
 						</font></h5>
+						</article>
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<!-- PULSANTE TORNA INDIETRO -->
-	
-	
-
-	
-	<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
-			<button type="submit" class="submit button-primary full-width-on-mobile" >Indietro</button>
-	</form>
 	
 
 	<!-- START BOTTOM FOOTER -->
@@ -143,10 +137,6 @@
 			<div class="row">
 
 				<div class="col-twelve">
-					<div class="copyright">
-						<span>© Copyright SILPH 2019</span> <span>Design by <a
-							href="http://www.styleshout.com/">styleshout</a></span>
-					</div>
 
 					<div id="go-top">
 						<a class="smoothscroll" title="Back to Top" href="#top"><i
