@@ -84,42 +84,46 @@
 			<div class="col-twelve">
 
 				<section>
-
+					<article class="brick entry format-standard animate-this">
 					<div class="content-media">
 						<div class="primary-content" style="text-align: center;">
 							<h1 class="entry-title add-bottom">
 								<span th:text="${fotografo.nome} + ' ' +${fotografo.cognome}"></span>
 							</h1>
 						</div>
-						<img th:src="@{${fotografo.imgProfilo}}" width="512px" height="512px">
+						<img th:src="@{${fotografo.imgProfilo}}" width="256px" height="256px">
 					</div>
+					</article>
 
 
 				</section>
 
 
-
-				<a th:href="@{'/mostraAlbumFotografo' + '/' + ${fotografo.id}}">
-					<button type="submit" class="half-width">I suoi Album</button>
+				<article class="brick entry format-standard animate-this">
+				<a href="/mostraAlbumFotografo">
+				<button type="submit" class="half-width">I suoi Album</button>
 				</a> 
-				
-				
-				<a th:href="@{'/mostraFotoFotografo' + '/' + ${fotografo.id}}">
-					<button type="submit" class="half-width">Le sue Foto</button>
+				</article>
+				<article class="brick entry format-standard animate-this">
+				<a href="/mostraFotoFotografo">
+				<button type="submit" class="half-width">Le sue Foto</button>
 				</a> 
-				
+				</article>
+				<article class="brick entry format-standard animate-this">
 				<a href="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
-					<button type="submit" class="half-width">Torna all'area
-						staff</button>
+				<button type="submit" class="half-width">Torna all'area staff</button>
 				</a> 
-				
+				</article>
+				<article class="brick entry format-standard animate-this">
 				<a href="/" th:if="${utente != 'ADMIN'}">
-					<button type="submit" class="half-width">Torna alla home</button>
+				<button type="submit" class="half-width">Torna alla home</button>
 				</a> 
-				
+				</article>
+				<article class="brick entry format-standard animate-this">
 				<a href="/cercaFotografo" th:if="${utente == 'ADMIN'}">
-					<button type="submit" class="half-width">Nuova ricerca</button>
-				</a> 
+				<button type="submit" class="half-width">Nuova ricerca</button>
+				</a>
+				</article> 
 
 				
 

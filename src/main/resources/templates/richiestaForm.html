@@ -99,9 +99,6 @@
 							<h4 th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="alert alert-error"></h4>
 							<div>Descrizione utilizzo fotografie:</div>
 							<input type="text" th:field="*{descrizione}" class="half-width"/>
-							<div th:each="foto : ${carrello.fotos}">
-								<img th:src="${foto.indirizzo}" width="128px" height="128px"></img>
-							</div>
 							<button type="submit" class="half-widht">INVIA</button>
 
 						</fieldset>
@@ -115,6 +112,32 @@
 			<!-- end col-twelve -->
 		</div>
 		<!-- end row -->
+	</section>
+	
+	
+	
+	<section id="bricks" class="with-top-sep">
+
+		<div class="row masonry">
+
+			<!-- brick-wrapper -->
+			
+			<div class="bricks-wrapper">
+
+		<div th:each="foto : ${carrello.fotos}">
+				<div class="grid-sizer"></div>
+
+				<article class="brick entry format-standard animate-this">
+					<div class="entry-thumb">
+						<img th:src="${foto.indirizzo}" width="512px" height="512px"></img>
+						<a th:href="@{'/mostraFotoA' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente == 'ADMIN'}">
+						<img th:src="@{${foto.indirizzo}}" width="512px" height="512px" class="center">
+						</a>
+					</div>
+				</article>
+				</div>
+			</div>
+		</div>
 	</section>
 
 	<!-- Java Script
