@@ -35,6 +35,7 @@ public class RichiestaController {
 			richiesta.setFotos(fotos);
 			this.richiestaService.inserisciRichiesta(richiesta);
 			model.addAttribute("richiesta", richiesta);
+			Carrello.getCarrello().deleteFotos(fotos);
 			return "mostraRichiesta.html";
 		}
 		else {

@@ -33,6 +33,10 @@ public final class Carrello {
 	public void setFotos(Set<Foto> fotos) {
 		this.fotos = fotos;
 	}
+	
+	public void deleteFotos(Set<Foto> fotos) {
+		this.fotos.removeAll(fotos);
+	}
 
 	
 }
