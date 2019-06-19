@@ -124,12 +124,12 @@
 
 										<div class="post-content">
 											<ul class="entry-meta">
-												<li>Marzo 18, 1968</li>
-												<li><a href="#">Sasuke Uchiha</a></li>
+												<li><a th:text="${fotografo.nome} + ' ' +${fotografo.cognome}"></a></li>
+												<li>
 											</ul>
 
 											<h1 class="slide-title">
-												<a href="single-standard.html" title="">Foto del mese</a>
+												<a href="single-standard.html" title="" th:text="${foto.titolo}"></a>
 											</h1>
 										</div>
 
