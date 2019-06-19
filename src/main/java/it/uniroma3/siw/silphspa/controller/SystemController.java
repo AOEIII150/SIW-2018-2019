@@ -15,6 +15,7 @@ import it.uniroma3.siw.silphspa.model.Fotografo;
 import it.uniroma3.siw.silphspa.services.AlbumService;
 import it.uniroma3.siw.silphspa.services.FotoService;
 import it.uniroma3.siw.silphspa.services.FotografoService;
+import it.uniroma3.siw.silphspa.services.RichiestaService;
 
 
 @Controller
@@ -28,6 +29,9 @@ public class SystemController {
 	
 	@Autowired
 	private FotografoService fotografoService;
+	
+	@Autowired
+	private RichiestaService richiestaService;
 	
 	//HOME
 	@RequestMapping(value = "/")
@@ -103,6 +107,13 @@ public class SystemController {
 	public String about(Model model) {
 		model.addAttribute("about");
 		return "about.html";
+	}
+	
+	//RICHIESTE
+	@RequestMapping(value="/vediRichieste")
+	public String richieste(Model model) {
+		model.addAttribute("richieste", this.richiestaService.MostraTutte());
+		return "mostraRichieste.html";
 	}
 	
 	
