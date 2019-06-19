@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import it.uniroma3.siw.silphspa.model.Foto;
+import it.uniroma3.siw.silphspa.model.Fotografo;
 import it.uniroma3.siw.silphspa.model.SilphStaff;
 import it.uniroma3.siw.silphspa.services.FotoService;
 import it.uniroma3.siw.silphspa.services.SilphStaffService;
@@ -38,6 +39,8 @@ public class SystemController {
         System.out.println("XXXXX = " +index);
 		Foto f = this.fotoService.findById(index);
 		model.addAttribute("foto", f);
+		Fotografo fotografo = f.getFotografo();
+		model.addAttribute("fotografo", fotografo);
 		
 		return "index.html";
 	

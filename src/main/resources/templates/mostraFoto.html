@@ -111,20 +111,13 @@
 					<button type="submit" class="half-width">Torna alla home</button>
 				</a> 
 				
-				<a th:href="@{'/fotoCarrello' + '/' + ${foto.id}}"
-					class="thumb-link">
-					<button type="submit" class="half-width"
-						th:if="${utente != 'ADMIN' && aggiunto != 'TRUE'}">Aggiungi
-						al carrello</button>
-				</a> <span th:if="${aggiunto == 'TRUE'}"> &nbsp;&nbsp; Foto
-					aggiunta correttamente </span> 
+				<a th:href="@{'/fotoCarrello' + '/' + ${foto.id}}" class="thumb-link">
+					<button type="submit" class="half-width" th:if="${utente != 'ADMIN' && aggiunto != 'TRUE'}">Aggiungi al carrello</button>
+				</a> <span th:if="${aggiunto == 'TRUE'}"> &nbsp;&nbsp; Foto aggiunta correttamente </span> 
 					
 					
-				<a th:href="@{/mostraFotos}"
-					class="thumb-link">
-					<button type="submit" class="half-width"
-						th:if="${utente != 'ADMIN' && aggiunto == 'TRUE'}">Aggiungi
-						un'altra foto</button>
+				<a th:href="@{/mostraFotos}" class="thumb-link">
+					<button type="submit" class="half-width" th:if="${utente != 'ADMIN' && aggiunto == 'TRUE'}">Aggiungi un'altra foto</button>
 				</a>
 
 

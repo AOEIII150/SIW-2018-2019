@@ -1,12 +1,14 @@
 <!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!-->
 <html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org"
 	xmlns="htttp://www.w3.org/1999/html">
+<!--<![endif]-->
 <head>
 
 <!--- basic page needs
    ================================================== -->
 <meta charset="utf-8">
-<title>Fotografo</title>
+<title>Foto</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -22,16 +24,15 @@
 <link rel="stylesheet" href="../css/main.css">
 
 
-
 <!-- script
    ================================================== -->
-<script src='../js/modernizr.js'></script>
-<script src='../js/pace.min.js'></script>
+<script src="../js/modernizr.js"></script>
+<script src="../js/pace.min.js"></script>
 
 <!-- favicons
 	================================================== -->
-<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-<link rel="icon" href="../favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 
 </head>
 
@@ -52,39 +53,22 @@
 			<nav id="main-nav-wrap">
 				<ul class="main-navigation sf-menu">
 					<li><a href="/" title="">Home</a></li>
-					<li class="has-children"><a href="/categorie" title="">Categorie</a>
+					<li class="has-children">
+					<li class="has-children">Categorie
 						<ul class="sub-menu">
 							<li><a href="/mostraFotos">Foto</a></li>
 							<li><a href="/mostraAlbums">Album</a></li>
 							<li><a href="/mostraFotografi">Fotografi</a></li>
-						</ul></li>
-					<li><a href="/mostraCarrello" title="">Carrello</a></li>
+						</ul>
+					</li>
+					<li class="has-children"><a href="/mostraCarrello" title="">Carrello</a>
+					</li>
 					<li><a href="/about" title="">About</a></li>
 					<li><a href="/pannelloDiControllo" title="">Staff</a></li>
 				</ul>
 			</nav>
 			<!-- end main-nav-wrap -->
 
-			<div class="search-wrap">
-
-				<form role="search" method="get" class="search-form" action="#">
-					<label> <span class="hide-content">Search for:</span> <input
-						type="search" class="search-field"
-						placeholder="Type Your Keywords" value="" name="s"
-						title="Search for:" autocomplete="off">
-					</label> <input type="submit" class="search-submit" value="Search">
-				</form>
-
-				<a href="#" id="close-search" class="close-btn">Close</a>
-
-			</div>
-			<!-- end search wrap -->
-
-			<div class="triggers">
-				<a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
-				<a class="menu-toggle" href="#"><span>Menu</span></a>
-			</div>
-			<!-- end triggers -->
 
 		</div>
 
@@ -92,136 +76,77 @@
 	<!-- end header -->
 
 
-	<!-- page header
+	<!-- content
    ================================================== -->
-	<section id="page-header">
-		<div class="row current-cat">
-			<div class="col-full">
-				<h1>Fotografo selezionato</h1>
-			</div>
-		</div>
-	</section>
+	<section id="content-wrap" class="site-page">
+		<div class="row">
+			<div class="col-twelve">
 
+				<section>
 
-	<!-- masonry
-   ================================================== -->
-	<section id="bricks" class="with-top-sep">
-
-		<div class="row masonry">
-
-			<!-- brick-wrapper -->
-			<div class="bricks-wrapper">
-
-				<div class="grid-sizer"></div>
-
-				<article class="brick entry format-standard animate-this" style="margin-left: 37.5%">
-
-					<div class="entry-thumb">
-						<img th:src="@{${fotografo.imgProfilo}}" width="512px"
-							height="512px">
-					</div>
-
-					<div class="entry-text">
-						<div class="entry-header">
-
-							<div class="entry-meta">
-								<span class="cat-links"> <a th:text=${fotografo.nome}></a>
-									<a th:text=${fotografo.cognome}></a>
-								</span>
-							</div>
+					<div class="content-media">
+						<div class="primary-content">
+							<h1 class="entry-title add-bottom">
+								<span th:text="${fotografo.nome} + ' ' +${fotografo.cognome}"> </span>
+							</h1>
 						</div>
+						<img th:src="@{${fotografo.imgProfilo}}" width="2048px" height="2048px">
 					</div>
-				</article>
+
+
+				</section>
+
+
+
+				<a href="/mostraAlbumFotografo">
+					<button type="submit" class="half-width">I suoi Album</button>
+				</a> 
+				
+				<a href="/mostraFotoFotografo">
+					<button type="submit" class="half-width">Le sue Foto</button>
+				</a> 
+				
+				<a href="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
+					<button type="submit" class="half-width">Torna all'area
+						staff</button>
+				</a> 
+				
+				<a href="/" th:if="${utente != 'ADMIN'}">
+					<button type="submit" class="half-width">Torna alla home</button>
+				</a> 
+				
+				<a href="/cercaFotografo" th:if="${utente == 'ADMIN'}">
+					<button type="submit" class="half-width">Nuova ricerca</button>
+				</a> 
+
+				
+
 			</div>
+			<!-- end col-twelve -->
 		</div>
+		<!-- end row -->
+
 	</section>
-	
-	
-	<!-- PULSANTE AI SUOI ALBUM -->
-	<article class="brick entry format-standard animate-this">
+	<!-- end content -->
+
+	<div class="footer-bottom">
 		<div class="row">
-			<form name="cForm" id="cForm" th:action="@{/mostraAlbums.idAlbum}"
-				method="get" th:object="${album}">
-				<button type="submit" class="half-widht">Album Caricati</button>
-			</form>
-		</div>
-	</article>
-	
-	<!-- PULSANTE AI SUOI ALBUM -->
-	<article class="brick entry format-standard animate-this">
-		<div class="row">
-			<form name="cForm" id="cForm" th:action="@{/mostraFotos.idFoto}"
-				method="get" th:object="${foto}">
-				<button type="submit" class="half-widht">Foto caricate</button>
-			</form>
-		</div>
-	</article>
 
-
-	<!-- PULSANTE INDIETRO -->
-	<article class="brick entry format-standard animate-this">
-		<div class="row">
-			<form name="cForm" id="cForm" th:action="@{/mostraFotografi}"
-				method="get" th:object="${fotografi}">
-				<button type="submit" class="half-widht">Indietro</button>
-			</form>
-		</div>
-	</article>
-
-	<!-- PULSANTE TORNA ALLA HOME -->
-	<article class="brick entry format-standard animate-this">
-		<div class="row">
-			<form name="cForm" id="cForm" th:action="@{/}" method="post"
-				th:object="${home}">
-				<button type="submit" class="half-widht">Torna alla Home</button>
-			</form>
-		</div>
-	</article>
-
-	<!-- PULSANTE TORNA ALL'AREA STAFF -->
-	<article class="brick entry format-standard animate-this">
-		<div class="row">
-			<form name="cForm" id="cForm" method="get"
-				action="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
-				<button type="submit" class="half-widht">Torna all'area
-					Staff</button>
-			</form>
-		</div>
-	</article>
-
-	<!-- PULSANTE NUOVA RICERCA -->
-	<article class="brick entry format-standard animate-this">
-		<div class="row">
-			<form name="cForm" id="cForm" method="get" action="/cercaFotografo"
-				th:if="${utente == 'ADMIN'}">
-				<button type="submit" class="half-widht">Cerca Foto</button>
-			</form>
-		</div>
-	</article>
-
-
-	<!-- START BOTTOM FOOTER -->
-	<footer>
-		<div class="footer-bottom">
-			<div class="row">
-
-				<div class="col-twelve">
-					<div class="copyright">
-						<span>© Copyright SILPH 2019</span> <span>Design by <a
-							href="http://www.styleshout.com/">styleshout</a></span>
-					</div>
-
-					<div id="go-top">
-						<a class="smoothscroll" title="Back to Top" href="#top"><i
-							class="icon icon-arrow-up"></i></a>
-					</div>
+			<div class="col-twelve">
+				<div class="copyright">
+					<span>© Copyright SILPH 2019</span> <span>Design by <a
+						href="http://www.styleshout.com/">styleshout</a></span>
 				</div>
 
+				<div id="go-top">
+					<a class="smoothscroll" title="Back to Top" href="#top"><i
+						class="icon icon-arrow-up"></i></a>
+				</div>
 			</div>
-		</div>
-		<!-- end footer-bottom -->
 
-	</footer>
+		</div>
+	</div>
+	<!-- end footer-bottom -->
 
 	<div id="preloader">
 		<div id="loader"></div>
