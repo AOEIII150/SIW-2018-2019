@@ -22,6 +22,15 @@ public class Foto {
 	@ManyToOne
 	private Fotografo fotografo;
 	
+	public Foto() {}
+	
+	public Foto(String titolo, String indirizzo, Album album, Fotografo fotografo) {
+		super();
+		this.titolo = titolo;
+		this.indirizzo = indirizzo;
+		this.album = album;
+		this.fotografo = fotografo;
+	}
 	//GETTER E SETTER
 	public String getTitolo() {
 		return titolo;

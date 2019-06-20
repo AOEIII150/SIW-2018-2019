@@ -17,16 +17,23 @@ public class Album {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String titolo;
-	
-	//private Foto copertina;
-	
+	private String titolo;	
 	
 	@OneToMany(mappedBy = "album")
 	private List<Foto> foto;
 	
 	@ManyToOne
 	private Fotografo fotografo;
+	
+	public Album() {}	
+	
+	public Album(String titolo, Fotografo fotografo) {
+		super();
+		this.titolo = titolo;
+		this.fotografo = fotografo;
+	}
+	
+	
 	
 	//GETTER E SETTER
 	public Long getId() {
@@ -53,11 +60,6 @@ public class Album {
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
 	}
-	/*public Foto getCopertina() {
-		return copertina;
-	}
-	public void setCopertina(Foto copertina) {
-		this.copertina = copertina;
-	}*/
+
 
 }
