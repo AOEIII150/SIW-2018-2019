@@ -31,8 +31,8 @@
 
 <!-- favicons
 	================================================== -->
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
 
 </head>
 
@@ -100,31 +100,31 @@
 				</section>
 
 
-				<article class="brick entry format-standard animate-this">
+				<article class="brick entry format-standard animate-this" align="middle">
 				<a href="/cercaFoto" th:if="${utente == 'ADMIN'}">
 					<button type="submit" class="half-width">Nuova ricerca</button>
 				</a> 
 				</article>
 				
-				<article class="brick entry format-standard animate-this">
+				<article class="brick entry format-standard animate-this" align="middle">
 				<a href="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
 					<button type="submit" class="half-width">Torna all'area staff</button>
 				</a> 
 				</article>
 				
-				<article class="brick entry format-standard animate-this">
+				<article class="brick entry format-standard animate-this" align="middle">
 				<a href="/" th:if="${utente != 'ADMIN'}">
 					<button type="submit" class="half-width">Torna alla home</button>
 				</a> 
 				</article>
 				
-				<article class="brick entry format-standard animate-this">
+				<article class="brick entry format-standard animate-this" align="middle">
 				<a th:href="@{'/fotoCarrello' + '/' + ${foto.id}}" class="thumb-link">
 					<button type="submit" class="half-width" th:if="${utente != 'ADMIN'}">Aggiungi al carrello</button>
 				</a> 
 				</article>
 					
-				<article class="brick entry format-standard animate-this">
+				<article class="brick entry format-standard animate-this" align="middle">
 				<a th:href="@{/mostraFotos}" class="thumb-link">
 					<button type="submit" class="half-width" th:if="${utente != 'ADMIN' && aggiunto == 'TRUE'}">Aggiungi un'altra foto</button>
 				</a>

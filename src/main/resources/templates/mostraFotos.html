@@ -2,7 +2,8 @@
 <!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html class="no-js" lang="en" xmlns:th= "http://www.thymeleaf.org" xmlns="htttp://www.w3.org/1999/html">
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns="htttp://www.w3.org/1999/html">
 <!--<![endif]-->
 <head>
 
@@ -60,14 +61,13 @@
 							<li><a href="/mostraAlbums">Album</a></li>
 							<li><a href="/mostraFotografi">Fotografi</a></li>
 						</ul></li>
-					<li><a href="/mostraCarrello"
-						title="">Carrello</a></li>
+					<li><a href="/mostraCarrello" title="">Carrello</a></li>
 					<li><a href="/about" title="">About</a></li>
 					<li><a href="/pannelloDiControllo" title="">Staff</a></li>
 				</ul>
 			</nav>
-			
-			
+
+
 
 		</div>
 
@@ -80,22 +80,30 @@
 	<section id="page-header">
 		<div class="row current-cat">
 			<div class="col-full">
-				<h1><font size="30px">Foto</font></h1>
-				<h3><span th:text="${fotografo.nome} + ' ' +${fotografo.cognome}" th:if="${f == 'EXIST'}"></span></h3>
-				
-			        
-				
-				
+				<h1>
+					<font size="30px">Foto</font>
+				</h1>
+				<h3>
+					<span th:text="${fotografo.nome} + ' ' +${fotografo.cognome}"
+						th:if="${f == 'EXIST'}"></span>
+				</h3>
+
+
+
+
 			</div>
 		</div>
 	</section>
-	
-	
-				<div class="alert-box ss-success hideit" align="left" style="width: 7cm; height: 2cm; position:relative; margin-left: 41.4%"  th:if="${aggiunto == 'TRUE'}">
-		        <p>Foto aggiunta corretamente</p>
-		        <i class="fa fa-times close"></i>
-		      </div><!-- /success -->
-	
+
+
+	<div class="alert-box ss-success hideit" align="left"
+		style="width: 7cm; height: 2cm; position: relative; margin-left: 41.4%"
+		th:if="${aggiunto == 'TRUE'}">
+		<p>Foto aggiunta corretamente</p>
+		<i class="fa fa-times close"></i>
+	</div>
+	<!-- /success -->
+
 
 
 	<!-- masonry
@@ -105,57 +113,64 @@
 		<div class="row masonry">
 
 			<!-- brick-wrapper -->
-			
+
 			<div class="bricks-wrapper">
 
-		<div th:each="foto : ${fotos}">
-				<div class="grid-sizer"></div>
+				<div th:each="foto : ${fotos}">
+					<div class="grid-sizer"></div>
 
-				<article class="brick entry format-standard animate-this">
-					<div class="entry-thumb">
-						<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente != 'ADMIN'}">
-						<img th:src="@{${foto.indirizzo}}" width="512px" height="512px" class="center">
-						</a>
-						<a th:href="@{'/mostraFotoA' + '/' + ${foto.id}}" class="thumb-link" th:if="${utente == 'ADMIN'}">
-						<img th:src="@{${foto.indirizzo}}" width="512px" height="512px" class="center">
-						</a>
-					</div>
-
-					<div class="entry-text">
-						<div class="entry-header">
-							<div class="entry-meta">
-								<span class="cat-links"> 			
-									<span th:text="${foto.fotografo.nome} + ' ' +${foto.fotografo.cognome}"></span>
-								</span>
-							</div>
-							
-							<h1 class="entry-title">
-								<a th:text="${foto.titolo}"></a>
-							</h1>
-							
+					<article class="brick entry format-standard animate-this">
+						<div class="entry-thumb">
+							<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}"
+								class="thumb-link" th:if="${utente != 'ADMIN'}"> <img
+								th:src="@{${foto.indirizzo}}" width="512px" height="512px"
+								class="center">
+							</a> <a th:href="@{'/mostraFotoA' + '/' + ${foto.id}}"
+								class="thumb-link" th:if="${utente == 'ADMIN'}"> <img
+								th:src="@{${foto.indirizzo}}" width="512px" height="512px"
+								class="center">
+							</a>
 						</div>
-						
-						<div class="entry-excerpt">Lorem ipsum Sed eiusmod esse
-							aliqua sed incididunt aliqua incididunt mollit id et sit proident
-							dolor nulla sed</div>
-	
-					</div>
-				</article>
+
+						<div class="entry-text">
+							<div class="entry-header">
+								<div class="entry-meta">
+									<span class="cat-links"> <span
+										th:text="${foto.fotografo.nome} + ' ' +${foto.fotografo.cognome}"></span>
+									</span>
+								</div>
+
+								<h1 class="entry-title">
+									<a th:text="${foto.titolo}"></a>
+								</h1>
+
+							</div>
+
+							<div class="entry-excerpt">Lorem ipsum Sed eiusmod esse
+								aliqua sed incididunt aliqua incididunt mollit id et sit
+								proident dolor nulla sed</div>
+
+						</div>
+					</article>
 				</div>
 			</div>
 		</div>
 	</section>
 	
-	
-<!-- PULSANTE TORNA INDIETRO -->
+		<!-- PULSANTE INDIETRO -->
+	<article class="brick entry format-standard animate-this">
+	<div class="row" align="middle">
+		<form name="cForm" id="cForm" th:action="@{/}" method="post"
+			th:object="${home}">
+			<button type="submit" class="half-widht">Indietro</button>
+		</form>
+	</div>
+	</article>
 
-	<form name="cForm" id="cForm" method="get" action="/pannelloDiControllo" th:if="${utente == 'ADMIN'}">
-			<button type="submit" class="submit button-primary full-width-on-mobile" >Indietro</button>
-	</form>
 
 
-<!-- START BOTTOM FOOTER -->
-<footer>
+	<!-- START BOTTOM FOOTER -->
+	<footer>
 		<div class="footer-bottom">
 			<div class="row">
 

@@ -33,8 +33,8 @@
 
 <!-- favicons
 	================================================== -->
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
 
 </head>
 
@@ -100,7 +100,7 @@
 		<div th:each="foto : ${carrello.fotos}">
 				<div class="grid-sizer"></div>
 
-				<article class="brick entry format-standard animate-this">
+				<article class="brick entry format-standard animate-this" align="middle">
 					<div class="entry-thumb">
 						<a th:href="@{'/rimuoviFoto' + '/' + ${foto.id}}" class="thumb-link">
 							<img th:src="@{${foto.indirizzo}}" width="512px" height="512px" class="center">
@@ -110,10 +110,10 @@
 				</div>
 			</div>
 			
-			<h5>Cliccare sulla foto per rimuoverla dal carrello</h5>
+			<h5 align="middle">Selezionare la foto per rimuoverla dal carrello </h5>
 			
 			<!-- PULSANTE INOLTRA RICHIESTA -->
-			<article class="brick entry format-standard animate-this">
+			<article class="brick entry format-standard animate-this" align="middle">
 				<a th:href="@{/inoltraRichiesta}" th:if="${utente != 'ADMIN'}">
 					<button type="submit" class="half-widht">Inoltra una richiesta</button>
 				</a>

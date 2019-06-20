@@ -33,8 +33,8 @@
 
 <!-- favicons
 	================================================== -->
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
 
 </head>
 
@@ -130,6 +130,16 @@
 			</div>
 		</div>
 	</section>
+	
+		<!-- PULSANTE INDIETRO -->
+	<article class="brick entry format-standard animate-this">
+	<div class="row" align="middle">
+		<form name="cForm" id="cForm" th:action="@{/}" method="post"
+			th:object="${home}">
+			<button type="submit" class="half-widht">Indietro</button>
+		</form>
+	</div>
+	</article>
 	
 
 	<!-- START BOTTOM FOOTER -->
