@@ -38,21 +38,6 @@ public class SystemController {
 	@RequestMapping(value = "/")
 	public String home(Model model) {
 		
-		if(this.fotografoService.MostraTutti().size() == 3) {
-			Fotografo f1 = new Fotografo("Daniele", "Quintarelli", "https://bit.ly/2IsRXZV");
-			this.fotografoService.inserisciFotografo(f1);
-			
-			if(this.albumService.MostraTutti().size() == 4) {
-				Album a1 = new Album("Interni", f1);
-				this.albumService.inserisciAlbum(a1);
-				
-				if(this.fotoService.MostraTutti().size() == 12) {
-					Foto ft1 = new Foto("Design confort", "https://bit.ly/2WR02k2", a1, f1);
-					this.fotoService.inserisciFoto(ft1);
-				}
-			}
-		}
-		
 		List<Foto> fotos = this.fotoService.MostraTutti();
 		Random random = new Random();
         int index = random.nextInt(fotos.size());
