@@ -8,9 +8,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import it.uniroma3.siw.silphspa.model.*;
-import it.uniroma3.siw.silphspa.repository.AlbumRepository;
-import it.uniroma3.siw.silphspa.repository.FotoRepository;
-import it.uniroma3.siw.silphspa.repository.FotografoRepository;
 import it.uniroma3.siw.silphspa.repository.SilphRepository;
 import it.uniroma3.siw.silphspa.services.AlbumService;
 import it.uniroma3.siw.silphspa.services.FotoService;
@@ -21,15 +18,6 @@ public class DBPopulation implements ApplicationRunner{
 
 	@Autowired
     private SilphRepository userRepository;
-	
-	@Autowired
-	private FotografoRepository fotografoRepository;
-	
-	@Autowired
-	private FotoRepository fotoRepository;
-	
-	@Autowired
-	private AlbumRepository albumRepository;
 	
 	@Autowired
 	private FotoService fotoService;
@@ -75,20 +63,26 @@ public class DBPopulation implements ApplicationRunner{
         	Fotografo f1 = new Fotografo("Simone", "Capparelli", "https://cdn.pixabay.com/photo/2015/10/20/04/12/portrait-997190_960_720.jpg");
             Fotografo f2 = new Fotografo("Martina", "Sasso", "https://bit.ly/2x2jwms");
             Fotografo f3 = new Fotografo("Chiara", "Nardi", "https://bit.ly/2FmBYuv");
-            this.fotografoRepository.save(f1);
-            this.fotografoRepository.save(f2);
-            this.fotografoRepository.save(f3);
+            Fotografo f4 = new Fotografo("Daniele", "Quintarelli", "https://bit.ly/2IsRXZV");
+            this.fotografoService.inserisciFotografo(f1);
+            this.fotografoService.inserisciFotografo(f2);
+            this.fotografoService.inserisciFotografo(f3);
+            this.fotografoService.inserisciFotografo(f4);       
             
             
             if(albumService.MostraTutti().isEmpty()) {
-          	  Album a1 = new Album("Macchine sportive", f1);
+            	Album a1 = new Album("Macchine sportive", f1);
                 Album a2 = new Album("Architettura", f2);
                 Album a3 = new Album("Natura", f2);
                 Album a4 = new Album("Natura", f3);
-                this.albumRepository.save(a1);
-                this.albumRepository.save(a2);
-                this.albumRepository.save(a3);
-                this.albumRepository.save(a4);
+                Album a5 = new Album("Interni", f4);
+                this.albumService.inserisciAlbum(a1);
+                this.albumService.inserisciAlbum(a2);
+                this.albumService.inserisciAlbum(a3);
+                this.albumService.inserisciAlbum(a4);
+                this.albumService.inserisciAlbum(a5);
+                
+             
                 
                 if(fotoService.MostraTutti().isEmpty()) {
 
@@ -104,36 +98,25 @@ public class DBPopulation implements ApplicationRunner{
                     Foto ft10 = new Foto("Finestra sul lago", "https://bit.ly/31FLGln", a3, f2);
                     Foto ft11 = new Foto("Laghi", "https://bit.ly/31CMzv3", a3, f2);
                     Foto ft12 = new Foto("Tramonto rosa", "https://bit.ly/2Is2Fji", a4, f3);
-                    this.fotoRepository.save(ft1);
-                    this.fotoRepository.save(ft2);
-                    this.fotoRepository.save(ft3);
-                    this.fotoRepository.save(ft4);
-                    this.fotoRepository.save(ft5);
-                    this.fotoRepository.save(ft6);
-                    this.fotoRepository.save(ft7);
-                    this.fotoRepository.save(ft8);
-                    this.fotoRepository.save(ft9);
-                    this.fotoRepository.save(ft10);
-                    this.fotoRepository.save(ft11);
-                    this.fotoRepository.save(ft12);
+                    Foto ft13 = new Foto("Design confort", "https://bit.ly/2WR02k2", a5, f4);
+                    this.fotoService.inserisciFoto(ft1);
+                    this.fotoService.inserisciFoto(ft2);
+                    this.fotoService.inserisciFoto(ft3);
+                    this.fotoService.inserisciFoto(ft4);
+                    this.fotoService.inserisciFoto(ft5);
+                    this.fotoService.inserisciFoto(ft6);
+                    this.fotoService.inserisciFoto(ft7);
+                    this.fotoService.inserisciFoto(ft8);
+                    this.fotoService.inserisciFoto(ft9);
+                    this.fotoService.inserisciFoto(ft10);
+                    this.fotoService.inserisciFoto(ft11);
+                    this.fotoService.inserisciFoto(ft12);
+                    this.fotoService.inserisciFoto(ft13);
+                       
                 }
           }
         }
-        
-        if(this.fotografoService.MostraTutti().size() == 3) {
-			Fotografo f1 = new Fotografo("Daniele", "Quintarelli", "https://bit.ly/2IsRXZV");
-			this.fotografoService.inserisciFotografo(f1);
-			
-			if(this.albumService.MostraTutti().size() == 4) {
-				Album a1 = new Album("Interni", f1);
-				this.albumService.inserisciAlbum(a1);
-				
-				if(this.fotoService.MostraTutti().size() == 12) {
-					Foto ft1 = new Foto("Design confort", "https://bit.ly/2WR02k2", a1, f1);
-					this.fotoService.inserisciFoto(ft1);
-				}
-			}
-		}
+
     
         System.out.println("Done.\n");
     }
