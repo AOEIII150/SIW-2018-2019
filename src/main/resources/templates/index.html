@@ -99,17 +99,17 @@
 
 										<div class="post-background" style="overflow: hidden;">
 										<img th:src="@{${copertina.indirizzo}}" style="width:100%;height:100%;" >
-											</div>
+										</div>
 
 										<div class="overlay"></div>
 
 										<div class="post-content">
 											<ul class="entry-meta">
-												<li><a th:text="${fotografo.nome} + ' ' +${fotografo.cognome}"></a></li>
+												<li><span th:text="${album.fotografo.nome} + ' ' +${album.fotografo.cognome}"></span></li>
 											</ul>
 											
 											<h1 class="slide-title">
-												<a th:text="${album.titolo}"></a>
+												<a th:href="@{'/mostraAlbum' + '/' + ${album.id}}" th:text="${album.titolo}"></a>
 											</h1>
 
 										</div>
@@ -129,11 +129,11 @@
 
 										<div class="post-content">
 											<ul class="entry-meta">
-												<li><a th:text="${fotografo.nome} + ' ' +${fotografo.cognome}"></a></li>
+												<li><span th:text="${foto.fotografo.nome} + ' ' +${foto.fotografo.cognome}"></span></li>
 											</ul>
 
 											<h1 class="slide-title">
-												<a th:text="${foto.titolo}"></a>
+												<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}"  th:text="${foto.titolo}"></a>
 											</h1>
 										</div>
 
@@ -145,14 +145,14 @@
 									<div class="featured-post-slide">
 
 										<div class="post-background" style="overflow: hidden;">
-										<img th:src="@{${fotografo.imgProfilo}}" style="width:100%;height:100%;" >
+										<img th:src="@{${foto.fotografo.imgProfilo}}" style="width:100%;height:100%;" >
 											</div>
 
 										<div class="overlay"></div>
 
 										<div class="post-content">
 											<ul class="entry-meta">
-												<li><h1 class="slide-title"><a th:text="${fotografo.nome} + ' ' +${fotografo.cognome}"></a></h1></li>
+												<li><h1 class="slide-title"><a th:href="@{'/fotografo' + '/' + ${foto.fotografo.id}}" th:text="${foto.fotografo.nome} + ' ' +${foto.fotografo.cognome}"></a></h1></li>
 												<li>
 											</ul>
 											

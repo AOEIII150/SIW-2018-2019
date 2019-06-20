@@ -41,39 +41,27 @@ public class SystemController {
 	        index++;
 			Foto f = this.fotoService.findById(index);
 			model.addAttribute("foto", f);
-			Fotografo fotografo = f.getFotografo();
-			model.addAttribute("fotografo", fotografo);
-			
 			List<Foto> ultime8 = fotos.subList(fotos.size()-10, fotos.size());
 			model.addAttribute("fotos", ultime8);
 			
+			Album a = f.getAlbum();
+			model.addAttribute("album", a);
+			List<Foto> fotoA = a.getFoto();
+		    Foto def = fotoA.get(0);
+		    model.addAttribute("copertina", def);
 		}
 		else {
 			Foto f = new Foto();
 			f.setIndirizzo("https://bit.ly/2XtMNSv");
+			f.setFotografo(new Fotografo("Empty","",""));
 			model.addAttribute("foto", f);
-			model.addAttribute("fotogrfo", "Empty");
+			if(this.albumService.MostraTutti().isEmpty()) {
+				Album a = new Album("Empty", new Fotografo("Empty", "", ""));
+				model.addAttribute("album", a);
+			}
+			model.addAttribute("copertina", f);
 		}
 		
-		
-		List<Album> albums = this.albumService.MostraTutti();
-		if(!albums.isEmpty()) {
-			Random random = new Random();
-			int indexA = random.nextInt(albums.size());
-		    indexA++;
-		    Album a = this.albumService.AlbumPerId(indexA);
-		    model.addAttribute("album", a);
-		    List<Foto> fotoA = a.getFoto();
-		    if(fotoA.isEmpty()) {
-		        Foto def = new Foto();
-		        def.setIndirizzo("https://bit.ly/2XtMNSv");
-		        model.addAttribute("copertina", def);
-		    }
-		    else {
-		        Foto fa = fotoA.get(0);
-		        model.addAttribute("copertina", fa);
-		    }
-		}
        
 		return "index.html";
 	
