@@ -62,7 +62,7 @@ public class SystemController {
 			model.addAttribute("copertina", f);
 		}
 		
-       
+		
 		return "index.html";
 	
 	}

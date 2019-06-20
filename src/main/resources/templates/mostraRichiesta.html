@@ -102,7 +102,7 @@
 				<h6><font size="4px" color="gray"><span th:text="'Descrizione: ' +${richiesta.descrizione}"></span></font></h6>
 				<h6><font size="4px" color="gray">ID foto:</font></h6>
 				<p class="lead"><span th:each="foto : ${richiesta.fotos}">
-									<span th:text="${foto.id}" style="font-family: "></span>
+									<span th:text="${foto.id} +' '"></span>
 				</span></p>
 				
 		<section id="bricks" class="with-top-sep">

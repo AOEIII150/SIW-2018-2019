@@ -94,6 +94,10 @@
 						<article class="brick entry format-standard animate-this">
 						<img th:src="@{${foto.indirizzo}}" width="2048px" height="2048px">
 						</article>
+						
+						<br/>
+						<p class="lead"><font size="4.2px" color="gray"><span th:text="'Fotografo: ' +${foto.fotografo.nome} + ' ' +${foto.fotografo.cognome} +' - ' +'Album: ' +${foto.album.titolo}"></span></font></p>
+			
 					</div>
 
 

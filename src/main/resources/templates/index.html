@@ -185,56 +185,23 @@
 						<div class="entry-header">
 							<div class="entry-meta">
 								<span class="cat-links"> 			
-									<a th:text="${foto.fotografo.nome} + ' ' +${foto.fotografo.cognome}"></a>
+									<a th:href="@{'/fotografo' + '/' + ${foto.fotografo.id}}" th:text="${foto.fotografo.nome} + ' ' +${foto.fotografo.cognome}"></a>
 								</span>
 							</div>
 							
 							<h1 class="entry-title">
-								<a th:text="${foto.titolo}"></a>
+								<span th:text="${foto.titolo}"></span>
 							</h1>
 							
 						</div>
+						</div>
 						
-						<div class="entry-excerpt">Lorem ipsum Sed eiusmod esse
-							aliqua sed incididunt aliqua incididunt mollit id et sit proident
-							dolor nulla sed</div>
-	
-					</div>
 				</article>
 				<!-- end article -->
 	</div>
 	
-	   <div th:each="fotografo : ${fotografi}">
-				<article class="brick entry format-standard animate-this">
-					<div class="entry-thumb">
-						<a th:href="@{'/fotografo' + '/' + ${fotografo.id}}" class="thumb-link"> <img
-							th:src="@{${fotografo.imgProfilo}}" alt="building">
-						</a>
-					</div>
 
-					<div class="entry-text">
-						<div class="entry-header">
-							
-							
-							<h1 class="entry-title">
-								<a th:text="${fotografo.nome} + ' ' +${fotografo.cognome}"></a>
-							</h1>
-							
-						</div>
-						
-						<div class="entry-excerpt">Lorem ipsum Sed eiusmod esse
-							aliqua sed incididunt aliqua incididunt mollit id et sit proident
-							dolor nulla sed</div>
-	
-					</div>
-				</article>
-				<!-- end article -->
-	</div>
-	
-		</div>
-			<!-- end brick-wrapper -->
 
-		</div>
 		<!-- end row -->
 
 	</section>
