@@ -2,7 +2,6 @@ package it.uniroma3.siw.silphspa.controller;
 
 
 import java.util.List;
-
 import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,7 +14,6 @@ import it.uniroma3.siw.silphspa.model.Foto;
 import it.uniroma3.siw.silphspa.model.Fotografo;
 import it.uniroma3.siw.silphspa.services.AlbumService;
 import it.uniroma3.siw.silphspa.services.FotoService;
-import it.uniroma3.siw.silphspa.services.FotografoService;
 import it.uniroma3.siw.silphspa.services.RichiestaService;
 
 
@@ -29,9 +27,6 @@ public class SystemController {
 	private AlbumService albumService;
 	
 	@Autowired
-	private FotografoService fotografoService;
-	
-	@Autowired
 	private RichiestaService richiestaService;
 	
 	//HOME
@@ -39,32 +34,47 @@ public class SystemController {
 	public String home(Model model) {
 		
 		List<Foto> fotos = this.fotoService.MostraTutti();
-		Random random = new Random();
-        int index = random.nextInt(fotos.size());
-        index++;
-		Foto f = this.fotoService.findById(index);
-		model.addAttribute("foto", f);
-		Fotografo fotografo = f.getFotografo();
-		model.addAttribute("fotografo", fotografo);
+		
+		if(!fotos.isEmpty()) {
+			Random random = new Random();
+	        int index = random.nextInt(fotos.size());
+	        index++;
+			Foto f = this.fotoService.findById(index);
+			model.addAttribute("foto", f);
+			Fotografo fotografo = f.getFotografo();
+			model.addAttribute("fotografo", fotografo);
+			
+			List<Foto> ultime8 = fotos.subList(fotos.size()-10, fotos.size());
+			model.addAttribute("fotos", ultime8);
+			
+		}
+		else {
+			Foto f = new Foto();
+			f.setIndirizzo("https://bit.ly/2XtMNSv");
+			model.addAttribute("foto", f);
+			model.addAttribute("fotogrfo", "Empty");
+		}
+		
 		
 		List<Album> albums = this.albumService.MostraTutti();
-        int indexA = random.nextInt(albums.size());
-        indexA++;
-        Album a = this.albumService.AlbumPerId(indexA);
-        model.addAttribute("album", a);
-        List<Foto> fotoA = a.getFoto();
-        if(fotoA.isEmpty()) {
-        	Foto def = new Foto();
-        	def.setIndirizzo("https://bit.ly/2XtMNSv");
-        	model.addAttribute("copertina", def);
-        }
-        else {
-        	Foto fa = fotoA.get(0);
-        	model.addAttribute("copertina", fa);
-        }
-   
-        model.addAttribute("fotos", fotos);
-        model.addAttribute("fotografi", this.fotografoService.MostraTutti());
+		if(!albums.isEmpty()) {
+			Random random = new Random();
+			int indexA = random.nextInt(albums.size());
+		    indexA++;
+		    Album a = this.albumService.AlbumPerId(indexA);
+		    model.addAttribute("album", a);
+		    List<Foto> fotoA = a.getFoto();
+		    if(fotoA.isEmpty()) {
+		        Foto def = new Foto();
+		        def.setIndirizzo("https://bit.ly/2XtMNSv");
+		        model.addAttribute("copertina", def);
+		    }
+		    else {
+		        Foto fa = fotoA.get(0);
+		        model.addAttribute("copertina", fa);
+		    }
+		}
+       
 		return "index.html";
 	
 	}
