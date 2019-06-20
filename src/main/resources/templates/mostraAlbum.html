@@ -101,7 +101,8 @@
 				<div class="grid-sizer"></div>
 				<article class="brick entry format-standard animate-this">
 					<div class="entry-thumb">
-						<img th:src="@{${foto.indirizzo}}" width="512px" height="512px">
+					<a th:href="@{'/mostraFoto' + '/' + ${foto.id}}">
+						<img th:src="@{${foto.indirizzo}}" width="512px" height="512px"></a>
 					</div>
 				</article>
 				</div>
