@@ -113,6 +113,7 @@
 
 							<div class="entry-excerpt">
 								<span class="cat-links"> 			
+									<font size="4px" style="color:black;"><span th:text="${fotografo.nome} + ' ' +${fotografo.cognome}" th:if="${utente == 'ADMIN'}"></span></font>
 									<font size="4px" style="color:black;"><span th:text="${fotografo.nome} + ' ' +${fotografo.cognome}" th:if="${utente != 'ADMIN'}"></span></font>
 								</span>
 							</div>

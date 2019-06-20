@@ -89,7 +89,7 @@ public class DBPopulation implements ApplicationRunner{
                     Foto ft1 = new Foto("Auto rosa", "https://bit.ly/2FidjaH", a1, f1);
                     Foto ft2 = new Foto("Auto verde", "https://bit.ly/2IVsXtm", a1, f1);
                     Foto ft3 = new Foto("Auto classica", "https://hdrihaven.com/files/gallery/L/habib%20roohzendeh_konzerthaus_7AWc.jpg", a1, f1);
-                    Foto ft4 = new Foto("Auto tecnologica", "https://hdrihaven.com/files/gallery/L/Sudhanshu%20Pal_schadowplatz_xRFu.jpg", a1, f1);
+                    Foto ft4 = new Foto("Auto sportiva", "https://hdrihaven.com/files/gallery/L/Mohamed%20Khaled_schadowplatz_wEVW.jpg", a1, f1);
                     Foto ft5 = new Foto("Palazzo triangolare", "https://hdrihaven.com/files/gallery/L/Danica%20Tomic_tablemountain1_1Azt.jpg", a2, f2);
                     Foto ft6 = new Foto("Casa", "https://hdrihaven.com/files/gallery/L/Azr%20Studio_waterbucktrial16k_sPNu.jpg", a2, f2);
                     Foto ft7 = new Foto("Palazzo 3000", "https://hdrihaven.com/files/gallery/L/Ehsan%20Akrami_greenpointpark4k_5a38.jpeg", a2, f2);
